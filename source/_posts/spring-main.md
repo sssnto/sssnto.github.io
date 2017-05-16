@@ -1,6 +1,6 @@
 ---
 title: spring主要组件
-date: 2017年5月16日13:34:38
+date: 2017-5-16 13:50:39
 tags: spring
 ---
 # Spring、Spring Cloud主要组件
