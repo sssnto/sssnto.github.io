@@ -5,6 +5,6 @@ tags: idea key
 ---
 # Idea 激活网址记录
 
-'''
+```
 http://idea.iteblog.com/key.php
-'''
+```
