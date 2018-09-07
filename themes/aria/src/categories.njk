@@ -1,0 +1,45 @@
+{% extends "layout.njk" %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ getAbsPath("css/page.css") }}">
+<link rel="stylesheet" type="text/css" href="{{ getAbsPath("css/post.css") }}">
+{% endblock %}
+
+{% block title %}{{ __(title) }} | {{ siteConfig.title }}{% if siteConfig.subtitle %} - {{ siteConfig.subtitle }}{% endif %}{% endblock %}
+
+{% block content %}
+<div id="categories" class="categories page">
+  <article class="article post card{% if themeConfig.animate %} animate{% endif %}">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">{{ __(title) }}</h1>
+    </header>
+    <main class="post-main">
+      <h2 class="page-counter">
+        {% if site.categoriesLength > 1 %}
+        {{ __("categorycount.more", site.categoriesLength) }}
+        {% elif site.categories.length === 1 %}
+        {{ __("categorycount.one", site.categoriesLength) }}
+        {% else %}
+        {{ __("categorycount.none") }}
+        {% endif %}
+      </h2>
+      <div class="categories-list">
+        {% macro listCategory(cates) %}
+        <ul>
+        {% for cate in cates %}
+          <li>
+            <a href="{{ getAbsPath(cate.docPath) }}">{{ cate.name }}</a>
+            {% if cate.subs.length > 0 %}
+            {{ listCategory(cate.subs) }}
+            {% endif %}
+          </li>
+        {% endfor %}
+        </ul>
+        {% endmacro %}
+        {{ listCategory(categories) }}
+      </div>
+    </main>
+    <footer class="post-footer"></footer>
+  </article>
+</div>
+{% endblock %}

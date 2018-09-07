@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    {% if themeConfig.color %}
+    <meta name="theme-color" content="{{ themeConfig.color }}">
+    <meta name="msapplication-TileColor" content="{{ themeConfig.color }}">
+    {% endif %}
+    {% if themeConfig.googleVerification %}
+    <meta name="google-site-verification" content="{{ themeConfig.googleVerification }}">
+    {% endif %}
+    {% if page.keywords %}
+    <meta name="keywords" content="{{ page.keywords.join(", ") }}">
+    {% elif themeConfig.keywords %}
+    <meta name="keywords" content="{{ themeConfig.keywords.join(", ") }}">
+    {% endif %}
+    {% if themeConfig.favicon.appleTouchIcon %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ getAbsPath(themeConfig.favicon.appleTouchIcon) }}">
+    {% endif %}
+    {% if themeConfig.favicon.androidChromeLarge %}
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ getAbsPath(themeConfig.favicon.androidChromeLarge) }}">
+    {% endif %}
+    {% if themeConfig.favicon.medium %}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ getAbsPath(themeConfig.favicon.medium) }}">
+    {% endif %}
+    {% if themeConfig.favicon.small %}
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ getAbsPath(themeConfig.favicon.small) }}">
+    {% endif %}
+    {% if themeConfig.favicon.safariPinnedTab %}
+    <link rel="mask-icon" href="{{ getAbsPath(themeConfig.favicon.safariPinnedTab) }}" color="{{ themeConfig.color }}">
+    {% endif %}
+    {% if themeConfig.favicon.androidManifest %}
+    <link rel="manifest" href="{{ getAbsPath(themeConfig.favicon.androidManifest) }}">
+    {% endif %}
+    {% if themeConfig.favicon.msBrowserConfig %}
+    <meta name="msapplication-config" content="{{ getAbsPath(themeConfig.favicon.msBrowserConfig) }}">
+    {% endif %}
+    {% if themeConfig.favicon.fallback %}
+    <link rel="shortcut icon" type="image/x-icon" href="{{ getAbsPath(themeConfig.favicon.fallback) }}">
+    {% endif %}
+    {% if siteConfig.feed.enable %}
+    <link rel="alternate" href="{{ getAbsPath(siteConfig.feed.path) }}" title="{{ siteConfig.title }}" type="application/atom+xml" />
+    {% endif %}
+    {% if themeConfig.customFont.enable and themeConfig.customFont.link %}
+    <link rel="stylesheet" type="text/css" href="{{ themeConfig.customFont.link }}">
+    {% endif %}
+    <link rel="stylesheet" type="text/css" href="{% if themeConfig.libCdn.enable and themeConfig.libCdn.normalize %}{{ themeConfig.libCdn.normalize }}{% else %}{{ getAbsPath("css/normalize.css") }}{% endif %}">
+    <link rel="stylesheet" type="text/css" href="{{ getAbsPath("css/index.css") }}">
+    {% if themeConfig.sidebar !== false %}
+    <link rel="stylesheet" type="text/css" href="{{ getAbsPath("css/sidebar.css") }}">
+    {% endif %}
+    {% block css %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{{ getAbsPath("css/custom.css") }}">
+    <link rel="stylesheet" type="text/css" href="{% if themeConfig.libCdn.enable and themeConfig.libCdn[themeConfig.highlight] %}{{ themeConfig.libCdn[themeConfig.highlight] }}{% else %}{{ getAbsPath("css/" + themeConfig.highlight + ".css") }}{% endif %}">
+    <link rel="stylesheet" type="text/css" href="{% if themeConfig.libCdn.enable and themeConfig.libCdn.lightGallery.css %}{{ themeConfig.libCdn.lightGallery.css }}{% else %}{{ getAbsPath("css/lightgallery.min.css") }}{% endif %}">
+    <script type="text/javascript" src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.jQuery %}{{ themeConfig.libCdn.jQuery }}{% else %}{{ getAbsPath("js/jquery.min.js") }}{% endif %}"></script>
+    <script defer type="text/javascript" src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.util %}{{ themeConfig.libCdn.util }}{% else %}{{ getAbsPath("js/util.js") }}{% endif %}"></script>
+    <script defer type="text/javascript" src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.scrollSpy %}{{ themeConfig.libCdn.scrollSpy }}{% else %}{{ getAbsPath("js/scrollspy.js") }}{% endif %}"></script>
+    <script defer type="text/javascript" src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.fontAwesome %}{{ themeConfig.libCdn.fontAwesome }}{% else %}{{ getAbsPath("js/fontawesome-all.min.js") }}{% endif %}"></script>
+    <script defer type="text/javascript" src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.lightGallery.js %}{{ themeConfig.libCdn.lightGallery.js }}{% else %}{{ getAbsPath("js/lightgallery.min.js") }}{% endif %}"></script>
+    <script defer type="text/javascript" src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.lgFullscreen %}{{ themeConfig.libCdn.lgFullscreen }}{% else %}{{ getAbsPath("js/lg-fullscreen.min.js") }}{% endif %}"></script>
+    <script defer type="text/javascript" src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.lgHash %}{{ themeConfig.libCdn.lgHash }}{% else %}{{ getAbsPath("js/lg-hash.min.js") }}{% endif %}"></script>
+    <script defer type="text/javascript" src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.lgPager %}{{ themeConfig.libCdn.lgPager }}{% else %}{{ getAbsPath("js/lg-pager.min.js") }}{% endif %}"></script>
+    <script defer type="text/javascript" src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.lgThumbnail %}{{ themeConfig.libCdn.lgThumbnail }}{% else %}{{ getAbsPath("js/lg-thumbnail.min.js") }}{% endif %}"></script>
+    <script defer type="text/javascript" src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.lgZoom %}{{ themeConfig.libCdn.lgZoom }}{% else %}{{ getAbsPath("js/lg-zoom.min.js") }}{% endif %}"></script>
+    {% if themeConfig.busuanzi %}
+    <script defer src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.busuanzi %}{{ themeConfig.libCdn.busuanzi }}{% else %}{{ getAbsPath("js/busuanzi.pure.mini.js") }}{% endif %}"></script>
+    {% endif %}
+    {% if themeConfig.search %}
+    <script defer type="text/javascript" src="{% if themeConfig.libCdn.enable and themeConfig.libCdn.search %}{{ themeConfig.libCdn.search }}{% else %}{{ getAbsPath("js/search.js") }}{% endif %}"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+      var searchPath = "{{ getAbsPath(siteConfig.search.path) }}";
+      if ("{{ siteConfig.search.path }}".length === 0) {
+        searchPath = "{{ getAbsPath("search.json") }}";
+      }
+      searchFunc(searchPath, "search-input", "search-result");
+    });
+    </script>
+    {% endif %}
+    {% if themeConfig.mathjax.cdn and themeConfig.mathjax.enable %}
+    {% if themeConfig.mathjax.global or page.mathjax %}
+    <script defer type="text/javascript" src="{{ themeConfig.mathjax.cdn }}"></script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [["$", "$"], ["\\(", "\\)"]],
+        processEscapes: true,
+        skipTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+      }
+    });
+    </script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += " has-jax";
+      }
+    });
+    </script>
+    {% endif %}
+    {% endif %}
+    <script defer type="text/javascript" src="{{ getAbsPath("js/index.js") }}"></script>
+    {% block js %}{% endblock %}
+    <script defer type="text/javascript" src="{{ getAbsPath("js/custom.js") }}"></script>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang or page.language or siteConfig.language }}"  data-spy="scroll" data-target=".list-group">
+    {% include "header.njk" %}
+    <main id="main" class="main">
+      <div class="container">
+        <div class="main-container">
+          <div class="content">
+            {% block content %}{% endblock %}
+          </div>
+          {# Sidebar can be `left`, `right` or `false`. #}
+          {% if themeConfig.sidebar !== false %}
+          {% include "sidebar.njk" %}
+          {% endif %}
+        </div>
+      </div>
+    </main>
+    {% include "footer.njk" %}
+  </body>
+</html>
