@@ -2,8 +2,10 @@
 title: 使用kubeadm在centos7上部署Kubernetes集群以及 监控视图
 date: 2018-4-2 10:49:38
 author: sssnto
-tags: centos7 k8s docker 
+tags: centos7 k8s docker
 category: 云平台
+comments: true    // 是否开启评论
+img:               // 自定义缩略图
 ---
 
 #### 系统要求
@@ -15,7 +17,7 @@ category: 云平台
 * 确保机器上的端口都是开着的
 * 关闭交换分区 swapoff -a
 
-##### 需要开通的端口     
+##### 需要开通的端口
 
 Master node(s)
 
@@ -27,7 +29,7 @@ TCP	| Inbound |	10250 |	Kubelet API
 TCP	| Inbound |	10251 |	kube-scheduler
 TCP	| Inbound |	10252 |	kube-controller-manager
 TCP	| Inbound |	10255 |	Read-only Kubelet API
-              
+
 
 Worker node(s)
 
@@ -68,7 +70,7 @@ yum install -y kubelet kubeadm kubectl
 systemctl enable kubelet && systemctl start kubelet
 ```
 
-> 注意： 
+> 注意：
 * 例如，setenforce 0需要通过运行来禁用SELinux 以允许容器访问主机文件系统，这是pod网络所需的。您必须这样做，直到kubelet中的SELinux支持得到改进。
 * RHEL / CentOS 7上的某些用户报告了由于iptables被绕过而导致流量被错误路由的问题。您应该确保net.bridge.bridge-nf-call-iptables在您的sysctl配置中设置为1 ，例如
 ```
@@ -337,7 +339,7 @@ NAME                                             TYPE                           
 
 deployment-controller-token-fmljr                kubernetes.io/service-account-token   3         4h
 
-[root@instance-1 .ssh]#  kubectl -n kube-system describe secret deployment-controller-token-fmljr                
+[root@instance-1 .ssh]#  kubectl -n kube-system describe secret deployment-controller-token-fmljr
 Name:         deployment-controller-token-fmljr
 Namespace:    kube-system
 Labels:       <none>
