@@ -66,10 +66,10 @@ notification: |-
 social:
  - name: Github
    icon: git
-   href: //github.com/shenliyang
+   href: //github.com/sssnto
  - name: 邮箱
    icon: envelope-o
-   href: mailto:snippet@91h5.cc
+   href: mailto:133317737@qq.com
  - name: 联系QQ
    icon: qq
    href: /
@@ -102,7 +102,7 @@ links:
 # 主题自定义个性化配置
 
 ## 网站宣传语
-branding:
+branding: 随笔，瞎写
 
 ## 设置banner背景图片
 banner:
@@ -179,8 +179,8 @@ changyan:
 ## Valine评论
 valine:
    enable: true
-   appId: xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz
-   appKey: erIpQac4azoCmgfBB7Dl9maa
+   appId: sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz
+   appKey: iiz82gKScRxXnAUhzSl152xw
    placeholder: 说点什么吧
    notify: false
    verify: false
