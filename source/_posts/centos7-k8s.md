@@ -2,12 +2,12 @@
 title: 使用kubeadm在centos7上部署Kubernetes集群以及 监控视图
 date: 2018-4-2 10:49:38
 author: sssnto
-tags: centos7 k8s docker
-category: 云平台
+tags: [centos7,k8s,docker]
+category: [云平台]
 comments: true    // 是否开启评论
 img:               // 自定义缩略图
 ---
-
+ 
 #### 系统要求
 * CentOS 7
 * 2G以上内存
