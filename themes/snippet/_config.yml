@@ -59,11 +59,7 @@ jsonContent:
 
 ## 网站公告设置
 notification: |-
-            <p>主题Snippet v1.2.1版本已经上线！欢迎更新~ <br/>
-            主题下载：<a href="https://github.com/shenliyang/hexo-theme-snippet" title="fork me" target="_blank">Snippet主题</a> <br/>
-            主题使用：<a href="https://github.com/shenliyang/hexo-theme-snippet/blob/master/README.md#常见问题" title="" target="_blank">常见使用问题</a> <br/>
-            <hr/>接受贡献，包括不限于提交问题与需求，修复代码。欢迎Pull Request<br/>支持主题：<a href="https://github.com/shenliyang/hexo-theme-snippet/stargazers">Star一下</a>
-            </p>
+            技术文档，哇咔咔
 
 ## 社交设置
 social:
@@ -212,6 +208,6 @@ baidu_site_verification:
 baidu_push: false
 
 #网站主题配置
-since: 2017
+since: 2018
 robot: 'all' ### 控制搜索引擎的抓取和索引编制行为，默认为all
 version: 1.2.1
