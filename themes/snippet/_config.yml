@@ -105,7 +105,8 @@ branding: sssnto 日常随笔
 
 ## 设置banner背景图片
 banner:
-    img: http://ww1.sinaimg.cn/large/bc44ba23ly1fv1xvmvgvmj20p0094myg.jpg
+    img: http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg
+      # http://ww1.sinaimg.cn/large/bc44ba23ly1fv1xvmvgvmj20p0094myg.jpg
       # http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg
 
 ## 首页列表底部面板
