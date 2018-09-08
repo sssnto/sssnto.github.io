@@ -5,7 +5,7 @@ author: sssnto
 tags: [centos7,k8s,docker]
 category: [云平台]
 comments: true    // 是否开启评论
-img: https://www.google.com.hk/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwibsvyCsKrdAhWOAYgKHZnoCvEQjRx6BAgBEAU&url=http%3A%2F%2Fwww.inwinstack.com%2Fzh%2F2018%2F05%2F08%2Fwhat-is-kubernetes-part2%2F&psig=AOvVaw2s_JRFBaYQ6bv6SoJ3J7rE&ust=1536460630978305              // 自定义缩略图
+img: ![](http://ww1.sinaimg.cn/large/bc44ba23ly1fv1xvmvgvmj20p0094myg.jpg)
 ---
 
 [toc]
