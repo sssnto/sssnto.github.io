@@ -6,6 +6,8 @@ tags: hexo
 category: 工具
 ---
 
+[toc]
+
 > github pages个人博客，使用hexo编写，使用Travis CI持续集成，自动发布
 
 # Github Pages设置

@@ -2,18 +2,20 @@
 title: 在centos7上安装hadoop hdp with ambari
 date: 2018-3-13 17:11:28
 author: sssnto
-tags: Ambari hadoop 
+tags: [Ambari,hadoop,docker]
 category: 大数据
 ---
+
+[toc]
 
 ## hadoop hdp ambari 安装
 
 ### 一. 安装环境描述
 
  - 操作系统： centos 7
- 
-机器名称 | ip 
-- | :-: 
+
+机器名称 | ip
+- | :-:
 instance-1 | 10.140.0.2
 instance-2 | 10.140.0.3
 instance-3 | 10.140.0.4
@@ -84,7 +86,7 @@ setenforce 0
 #     enforcing - SELinux security policy is enforced.
 #     permissive - SELinux prints warnings instead of enforcing.
 #     disabled - No SELinux policy is loaded.
-SELINUX=disabled 
+SELINUX=disabled
 # SELINUXTYPE= can take one of three two values:
 #     targeted - Targeted processes are protected,
 #     minimum - Modification of targeted policy. Only selected processes are protected.
@@ -117,8 +119,8 @@ echo umask 0022 >> /etc/profile
 ```
 [root@instance-1 ~]# yum repolist
 Loaded plugins: fastestmirror
-ambari-2.6.1.0                       | 2.9 kB     00:00     
-ambari-2.6.1.0/primary_db              | 8.6 kB   00:00     
+ambari-2.6.1.0                       | 2.9 kB     00:00
+ambari-2.6.1.0/primary_db              | 8.6 kB   00:00
 Loading mirror speeds from cached hostfile
  * base: centos.sonn.com
  * epel: mirrors.cat.pdx.edu
@@ -141,18 +143,18 @@ repolist: 25,264
 ......
 Transaction test succeeded
 Running transaction
-  Installing : postgresql-libs-9.2.23-3.el7_4.x86_64               1/4 
-  Installing : postgresql-9.2.23-3.el7_4.x86_64                    2/4 
-  Installing : postgresql-server-9.2.23-3.el7_4.x86_64             3/4 
-  Installing : ambari-server-2.6.1.0-143.x86_64                    4/4 
-  Verifying  : postgresql-9.2.23-3.el7_4.x86_64                    1/4 
-  Verifying  : ambari-server-2.6.1.0-143.x86_64                    2/4 
-  Verifying  : postgresql-server-9.2.23-3.el7_4.x86_64             3/4 
-  Verifying  : postgresql-libs-9.2.23-3.el7_4.x86_64               4/4 
+  Installing : postgresql-libs-9.2.23-3.el7_4.x86_64               1/4
+  Installing : postgresql-9.2.23-3.el7_4.x86_64                    2/4
+  Installing : postgresql-server-9.2.23-3.el7_4.x86_64             3/4
+  Installing : ambari-server-2.6.1.0-143.x86_64                    4/4
+  Verifying  : postgresql-9.2.23-3.el7_4.x86_64                    1/4
+  Verifying  : ambari-server-2.6.1.0-143.x86_64                    2/4
+  Verifying  : postgresql-server-9.2.23-3.el7_4.x86_64             3/4
+  Verifying  : postgresql-libs-9.2.23-3.el7_4.x86_64               4/4
 Installed:
-  ambari-server.x86_64 0:2.6.1.0-143                                                              
+  ambari-server.x86_64 0:2.6.1.0-143
 Dependency Installed:
-  postgresql.x86_64 0:9.2.23-3.el7_4   postgresql-libs.x86_64 0:9.2.23-3.el7_4   postgresql-server.x86_64 0:9.2.23-3.el7_4  
+  postgresql.x86_64 0:9.2.23-3.el7_4   postgresql-libs.x86_64 0:9.2.23-3.el7_4   postgresql-server.x86_64 0:9.2.23-3.el7_4
 Complete!
 ```
 #### 3. 设置服务器
@@ -185,7 +187,7 @@ scp /var/lib/ambari-server/resources/Ambari-DDL-MySQL-CREATE.sql instance-2:~
 
 ```
 [root@instance-2 ~]# mysql -uroot -p
-Enter password: 
+Enter password:
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 Your MariaDB connection id is 32
 Server version: 5.5.56-MariaDB MariaDB Server
@@ -196,8 +198,8 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 MariaDB [(none)]> use ambari;
 Database changed
-MariaDB [ambari]> 
-MariaDB [ambari]> 
+MariaDB [ambari]>
+MariaDB [ambari]>
 MariaDB [ambari]> source /root/Ambari-DDL-MySQL-CREATE.sql
 Query OK, 0 rows affected (0.00 sec)
 
@@ -258,7 +260,7 @@ GPL License for LZO: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 Enable Ambari Server to download and install GPL Licensed LZO packages [y/n] (n)? y
 Completing setup...
 Configuring database...
-Enter advanced database configuration [y/n] (n)? 
+Enter advanced database configuration [y/n] (n)?
 Configuring database...
 Default properties detected. Using built-in database.
 Configuring ambari database...
@@ -408,5 +410,4 @@ alter table PARTITION_KEYS modify column PKEY_COMMENT varchar(4000) character se
 ```
 javax.jdo.option.ConnectionURL
 jdbc:mysql://192.168.0.128:3306/hive?characterEncoding=UTF-8
-```  
-
+```

@@ -2,9 +2,11 @@
 title: centos7 安装mariadb 数据库
 date: 2018-3-13 17:11:28
 author: sssnto
-tags: mariadb hadoop 
+tags: [mariadb,hadoop]
 category: 大数据
 ---
+
+[toc]
 
 centos7 安装mariadb 数据库
 1、安装MariaDB
@@ -61,10 +63,10 @@ mysql -uroot -ppassword
 vi /etc/my.cnf
 在[mysqld]标签下添加
 ```
-init_connect='SET collation_connection = utf8_unicode_ci' 
-init_connect='SET NAMES utf8' 
-character-set-server=utf8 
-collation-server=utf8_unicode_ci 
+init_connect='SET collation_connection = utf8_unicode_ci'
+init_connect='SET NAMES utf8'
+character-set-server=utf8
+collation-server=utf8_unicode_ci
 skip-character-set-client-handshake
 ```
 文件/etc/my.cnf.d/client.cnf
@@ -115,7 +117,7 @@ mysql> show variables like "%character%";show variables like "%collation%";
 
 字符集配置完成。
 
- 
+
 
 3、添加用户，设置权限
 ```
@@ -125,7 +127,7 @@ mysql>create user username@localhost identified by 'password';
 直接创建用户并授权的命令
 
 mysql>grant all on *.* to username@localhost indentified by 'password';
-授予外网登陆权限 
+授予外网登陆权限
 
 mysql>grant all privileges on *.* to username@'%' identified by 'password';
 授予权限并且可以授权
