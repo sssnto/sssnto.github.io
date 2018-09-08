@@ -5,7 +5,7 @@ author: sssnto
 tags: [centos7,k8s,docker]
 category: [云平台]
 comments: true    // 是否开启评论
-img: ![](http://ww1.sinaimg.cn/large/bc44ba23ly1fv1xvmvgvmj20p0094myg.jpg)
+img: http://ww1.sinaimg.cn/large/bc44ba23ly1fv1xvmvgvmj20p0094myg.jpg
 ---
 
 [toc]
