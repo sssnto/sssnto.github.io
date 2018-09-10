@@ -1,10 +1,10 @@
 ---
 title: 【转】整理的开源项目地址
-date: 2017年7月11日09:32:41
+date: 2017-7-11 09:32:41
 tags: hello world
 ---
 # 下面提供一些跟开源相关的文章链接：
-     
+
 
 ## 1.Apache的开源软件列表
 >http://www.oschina.net/project/apache
@@ -192,7 +192,7 @@ tags: hello world
 
 >作者：qibaoguang
 >github地址:https://github.com/qibaoguang/Spring-Boot-Reference-Guide
- 
+
 ## 2. spring4中文参考文档
 
 >作者：Way Lau
