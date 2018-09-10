@@ -23,7 +23,9 @@ menu:
 - page: 时间轴
   url: /archives/
   icon:
-
+- page: 关于我
+  url: /aboutme/
+  icon:
 ## favicon
 favicon: /favicon.ico
 
