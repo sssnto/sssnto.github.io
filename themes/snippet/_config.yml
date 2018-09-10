@@ -169,7 +169,7 @@ uyan:
 
 ### Disqus评论
 disqus:
-  enable: true
+  enable: false
   shortname: blog-sssnto
   count: false
 
@@ -181,7 +181,7 @@ changyan:
 
 ## Valine评论
 valine:
-   enable: false
+   enable: true
    appId: sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz
    appKey: iiz82gKScRxXnAUhzSl152xw
    placeholder: 说点什么吧
