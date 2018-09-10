@@ -60,6 +60,13 @@ time_format: HH:mm:ss
 per_page: 10
 pagination_dir: page
 
+# 自动生成sitemap
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+
+
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
@@ -69,7 +76,7 @@ theme: snippet
 ## Docs: https://hexo.io/docs/deployment.html
 #deploy:
 #  type:
-deploy: 
+deploy:
   type: git
   #elfwalk改为你的github用户名
   repository: git@github.com:sssnto/sssnto.github.io.git
