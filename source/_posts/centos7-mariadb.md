@@ -3,7 +3,7 @@ title: centos7 安装mariadb 数据库
 date: 2018-3-13 17:11:28
 author: sssnto
 tags: [mariadb,hadoop]
-category: 大数据
+category: 云平台
 ---
 
 [toc]

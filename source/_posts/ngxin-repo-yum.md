@@ -2,8 +2,8 @@
 title: nginx 搭建本地yum源
 date: 2018-3-25 10:10:05
 author: sssnto
-tags: ambari  nginx 
-category: 大数据
+tags: ambari  nginx
+category: 云平台
 ---
 
 

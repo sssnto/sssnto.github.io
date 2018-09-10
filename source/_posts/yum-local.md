@@ -2,7 +2,7 @@
 title: 离线yum本地安装
 date: 2018-3-25 10:10:05
 author: sssnto
-tags: yum  centos 
+tags: [yum,centos]
 category: 云平台
 ---
 
@@ -17,4 +17,3 @@ setenforce 0
 
 yum -y localinstall *.rpm
 ```
-
