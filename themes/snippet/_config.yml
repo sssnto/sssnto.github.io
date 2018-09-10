@@ -200,16 +200,16 @@ cnzz_analytics: 1263868967
 baidu_analytics:
 
 ### 谷歌统计
-google_analytics:
+google_analytics: UA-75365022-2
 
 ### 腾讯分析
-tencent_analytics:
+tencent_analytics: 66005934
 
 ### 百度站点认证
 baidu_site_verification:
 
 ### 百度自动推送
-baidu_push: false
+baidu_push: true
 
 #网站主题配置
 since: 2018
