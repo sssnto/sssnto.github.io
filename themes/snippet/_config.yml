@@ -169,9 +169,9 @@ uyan:
 
 ### Disqus评论
 disqus:
-  enable: false
+  enable: true
   shortname: blog-sssnto
-  count: false
+  count: true
 
 ### 畅言评论(需要ICP备案)
 changyan:
@@ -181,7 +181,7 @@ changyan:
 
 ## Valine评论
 valine:
-   enable: true
+   enable: false
    appId: sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz
    appKey: iiz82gKScRxXnAUhzSl152xw
    placeholder: 说点什么吧
