@@ -98,6 +98,7 @@ arch_config:
 ## 友链设置
 links:
   - Hexo官网: https://hexo.io/zh-cn/
+  - 科学上网: http://us.sssnto.cn
 
 
 # 主题自定义个性化配置
