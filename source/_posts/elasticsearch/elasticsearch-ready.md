@@ -1,7 +1,7 @@
 ---
 layout: "post"
 title: "elasticsearch 学习笔记1-课程准备以及学习安装"
-date: "2018-09-10 11:02"
+date: "2018-09-18 11:02"
 tags: [elasticsearch,'分布式搜索']
 category: [elasticsearch]
 comments: true    // 是否开启评论
