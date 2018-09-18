@@ -13,7 +13,8 @@ comments: true    // 是否开启评论
 
 - [jdk](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [Elasticsearch安装包](elastic.co/downloads/elasticsearch)
-
+ - [kibana](https://www.elastic.co/downloads/kibana)
+ 
 ## 1. java 安装。 官网下载后正常安装。不做赘述。
 ## 2. elasticsearch安装
 要想安装 Elasticsearch，先下载并解压适合你操作系统的 Elasticsearch 版本。如果你想了解更多的信息， 可以查看 Elasticsearch 参考手册里边的安装部分，这边给出的链接指向安装说明 [Installation](https://www.elastic.co/guide/en/elasticsearch/reference/master/_installation.html)。
