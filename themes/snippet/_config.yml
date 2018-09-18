@@ -2,7 +2,6 @@
 #   Site Information And Theme Configuration Settings
 #   language: zh-CN
 # ---------------------------------------------------------------
-
 ## menu
 menu:
 - page: home
@@ -10,6 +9,9 @@ menu:
   icon:
 - page: 云平台
   url: /categories/云平台/
+  icon:
+- page: elasticsearch
+  url: /categories/elasticsearch/
   icon:
 - page: 后端框架
   url: /categories/后端框架/
