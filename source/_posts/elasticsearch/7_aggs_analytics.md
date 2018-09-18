@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "elasticsearch 学习笔记6-聚合分析"
+title: "elasticsearch 学习笔记7-聚合分析"
 date: "2018-09-18 13:10"
 tags: [elasticsearch,'分布式搜索']
 category: [elasticsearch]
