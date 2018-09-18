@@ -67,4 +67,4 @@ curl 'http://localhost:9200/?pretty'
 > windows 版本启动kibana： ./bin/kibana.bat
 
 2. 用浏览器打开应用：http://localhost:5601/app/kibana 显示以下界面为安装成功
-![Screenshot](/assets/Screenshot.png)
+![Screenshot](https://i.imgur.com/HJHgbLW.png)
