@@ -1,0 +1,385 @@
+<!DOCTYPE HTML>
+<html lang="null">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="sssnto">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://blog.sssnto.cn">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>elasticsearch-课程准备以及学习安装 | sssnto</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="sssnto" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+	<script>
+		(function(i, s, o, g, r, a, m) {
+		    i['GoogleAnalyticsObject'] = r;
+		    i[r] = i[r] || function() {
+		        (i[r].q = i[r].q || []).push(arguments)
+		    }, i[r].l = 1 * new Date();
+		    a = s.createElement(o),
+		    m = s.getElementsByTagName(o)[0];
+		    a.async = 1;
+		    a.src = g;
+		    m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-75365022-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66005934" charset="UTF-8"></script>
+
+    
+    <meta name="baidu-site-verification" content="WMddhGLcHI" />
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='sssnto'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> sssnto 日常随笔 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://blog.sssnto.cn">sssnto</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/云平台/"><i class="fa "></i>云平台</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/elasticsearch/"><i class="fa "></i>elasticsearch</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端框架/"><i class="fa "></i>后端框架</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/大数据/"><i class="fa "></i>大数据</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/aboutme/"><i class="fa "></i>关于我</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="elasticsearch-课程准备以及学习安装">
+            
+	            elasticsearch-课程准备以及学习安装
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/elasticsearch">
+            elasticsearch
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/elasticsearch" title='elasticsearch'>
+                        elasticsearch
+                    </a>
+                
+                    <a href="/tags/分布式搜索" title='分布式搜索'>
+                        分布式搜索
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/09/18</span>
+        </span>
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="1-安装并运行-Elasticsearch"><a href="#1-安装并运行-Elasticsearch" class="headerlink" title="1. 安装并运行 Elasticsearch"></a>1. 安装并运行 Elasticsearch</h1><p>运行环境</p>
+<ul>
+<li><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">jdk</a></li>
+<li><a href="elastic.co/downloads/elasticsearch">Elasticsearch安装包</a><ul>
+<li><a href="https://www.elastic.co/downloads/kibana" target="_blank" rel="noopener">kibana</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="1-java-安装。-官网下载后正常安装。不做赘述。"><a href="#1-java-安装。-官网下载后正常安装。不做赘述。" class="headerlink" title="1. java 安装。 官网下载后正常安装。不做赘述。"></a>1. java 安装。 官网下载后正常安装。不做赘述。</h2><h2 id="2-elasticsearch安装"><a href="#2-elasticsearch安装" class="headerlink" title="2. elasticsearch安装"></a>2. elasticsearch安装</h2><p>要想安装 Elasticsearch，先下载并解压适合你操作系统的 Elasticsearch 版本。如果你想了解更多的信息， 可以查看 Elasticsearch 参考手册里边的安装部分，这边给出的链接指向安装说明 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/master/_installation.html" target="_blank" rel="noopener">Installation</a>。</p>
+<p>下载文件并解压，并且执行启动命令</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> elasticsearch-&lt;version&gt;</span><br><span class="line">./bin/elasticsearch</span><br></pre></td></tr></table></figure>
+<p>测试 Elasticsearch 是否启动成功，可以打开另一个终端，执行以下操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl &apos;http://localhost:9200/?pretty&apos;</span><br></pre></td></tr></table></figure>
+<p>上面是官网给出的测试方法， 本地测试用浏览器直接访问地址即可<br>请求上面的地址可返回一下数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span> : <span class="string">"Tom Foster"</span>,</span><br><span class="line">  <span class="attr">"cluster_name"</span> : <span class="string">"elasticsearch"</span>,</span><br><span class="line">  <span class="attr">"version"</span> : &#123;</span><br><span class="line">    <span class="attr">"number"</span> : <span class="string">"2.1.0"</span>,</span><br><span class="line">    <span class="attr">"build_hash"</span> : <span class="string">"72cd1f1a3eee09505e036106146dc1949dc5dc87"</span>,</span><br><span class="line">    <span class="attr">"build_timestamp"</span> : <span class="string">"2015-11-18T22:40:03Z"</span>,</span><br><span class="line">    <span class="attr">"build_snapshot"</span> : <span class="literal">false</span>,</span><br><span class="line">    <span class="attr">"lucene_version"</span> : <span class="string">"5.3.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"tagline"</span> : <span class="string">"You Know, for Search"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>能返回这个信息就说明你已经成功启动一个Elasticsearch 节点了。你可以用它做实验了。<br>单个 节点 可以作为一个运行中的 Elasticsearch 的实例。 而一个 集群 是一组拥有相同 cluster.name 的节点， 他们能一起工作并共享数据，还提供容错与可伸缩性。(当然，一个单独的节点也可以组成一个集群) 你可以在 elasticsearch.yml 配置文件中 修改 cluster.name ，该文件会在节点启动时加载 (译者注：这个重启服务后才会生效)。 关于上面的 cluster.name 以及其它 Important Configuration Changes 信息， 你可以在这本书后面提供的生产部署章节找到更多。</p>
+<h2 id="3-安装Kibana"><a href="#3-安装Kibana" class="headerlink" title="3.  安装Kibana"></a>3.  安装Kibana</h2><p> Kibana 应用 它提供交互式的控制台，通过你的浏览器直接向 Elasticsearch 提交请求。</p>
+<ul>
+<li><a href="https://www.elastic.co/downloads/kibana" target="_blank" rel="noopener">kibana</a></li>
+</ul>
+<ol>
+<li>下载kibana并且解压，启动kibana</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/kibana</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>windows 版本启动kibana： ./bin/kibana.bat</p>
+</blockquote>
+<ol start="2">
+<li>用浏览器打开应用：<a href="http://localhost:5601/app/kibana" target="_blank" rel="noopener">http://localhost:5601/app/kibana</a> 显示以下界面为安装成功<br><img src="https://i.imgur.com/HJHgbLW.png" alt="Screenshot"></li>
+</ol>
+
+    </div>
+
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/09/18/elasticsearch/2_talking_to_elasticsearch/" class="pre-post btn btn-default" title='elasticsearch-与es之间的交互'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">elasticsearch-与es之间的交互</span>
+        </a>
+    
+    
+        <a href="/2018/09/10/2018/2018-09-10-驾驶证更换/" class="next-post btn btn-default" title='驾驶证更换材料'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">驾驶证更换材料</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        // new Valine({
+        //     av: AV,
+        //     el: '#vcomments',
+        //     appId: 'sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz',
+        //     appKey: 'iiz82gKScRxXnAUhzSl152xw',
+        //     placeholder: '说点什么吧',
+        //     notify: false,
+        //     verify: false,
+        //     avatar: 'mm',
+        //     meta: 'nick,mail'.split(','),
+        //     pageSize: '10',
+        //     path: window.location.pathname,
+        //     lang: 'null'.toLowerCase()
+        // })
+
+        new Valine({
+          // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+          av: AV,
+          el: '#vcomments', //
+          appId: 'sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz', // 这里填写上面得到的APP ID
+          appKey: 'iiz82gKScRxXnAUhzSl152xw', // 这里填写上面得到的APP KEY
+          placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!' // [v1.0.7 new]留言框占位提示文字
+        });
+
+    </script>
+
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-安装并运行-Elasticsearch"><span class="toc-text">1. 安装并运行 Elasticsearch</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-java-安装。-官网下载后正常安装。不做赘述。"><span class="toc-text">1. java 安装。 官网下载后正常安装。不做赘述。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-elasticsearch安装"><span class="toc-text">2. elasticsearch安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-安装Kibana"><span class="toc-text">3.  安装Kibana</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2018
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

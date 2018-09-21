@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html lang="null">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="sssnto">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://blog.sssnto.cn">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>在centos7上卸载 hadoop hdp with ambari （废弃，删除不干净，禁用） | sssnto</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="sssnto" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+	<script>
+		(function(i, s, o, g, r, a, m) {
+		    i['GoogleAnalyticsObject'] = r;
+		    i[r] = i[r] || function() {
+		        (i[r].q = i[r].q || []).push(arguments)
+		    }, i[r].l = 1 * new Date();
+		    a = s.createElement(o),
+		    m = s.getElementsByTagName(o)[0];
+		    a.async = 1;
+		    a.src = g;
+		    m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-75365022-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66005934" charset="UTF-8"></script>
+
+    
+    <meta name="baidu-site-verification" content="WMddhGLcHI" />
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='sssnto'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> sssnto 日常随笔 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://blog.sssnto.cn">sssnto</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/云平台/"><i class="fa "></i>云平台</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/elasticsearch/"><i class="fa "></i>elasticsearch</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端框架/"><i class="fa "></i>后端框架</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/大数据/"><i class="fa "></i>大数据</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/aboutme/"><i class="fa "></i>关于我</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="在centos7上卸载 hadoop hdp with ambari （废弃，删除不干净，禁用）">
+            
+	            在centos7上卸载 hadoop hdp with ambari （废弃，删除不干净，禁用）
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/大数据">
+            大数据
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Ambari hadoop" title='Ambari hadoop'>
+                        Ambari hadoop
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/03/13</span>
+        </span>
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="hadoop-hdp-ambari-卸载"><a href="#hadoop-hdp-ambari-卸载" class="headerlink" title="hadoop hdp ambari 卸载"></a>hadoop hdp ambari 卸载</h2><h4 id="1，通过ambari将集群中的所用组件都关闭，如果关闭不了，直接kill-9-XXX"><a href="#1，通过ambari将集群中的所用组件都关闭，如果关闭不了，直接kill-9-XXX" class="headerlink" title="1，通过ambari将集群中的所用组件都关闭，如果关闭不了，直接kill -9 XXX"></a>1，通过ambari将集群中的所用组件都关闭，如果关闭不了，直接kill -9 XXX</h4><h4 id="2，关闭ambari-server，ambari-agent"><a href="#2，关闭ambari-server，ambari-agent" class="headerlink" title="2，关闭ambari-server，ambari-agent"></a>2，关闭ambari-server，ambari-agent</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ambari-server stop  </span><br><span class="line">ambari-agent stop</span><br></pre></td></tr></table></figure>
+<p>3，卸载安装的软件<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove -y hadoop_2* hdp-select* ranger_2* zookeeper* bigtop* atlas-metadata* ambari* postgresql spark*  snappy*</span><br></pre></td></tr></table></figure></p>
+<p>以上命令可能不全，执行完一下命令后，再执行</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum list | grep @HDP</span><br></pre></td></tr></table></figure>
+<p>查看是否还有没有卸载的，如果有，继续通过#yum remove XXX卸载</p>
+<p>4，删除postgresql的数据</p>
+<p>postgresql软件卸载后，其数据还保留在硬盘中，需要把这部分数据删除掉，如果不删除掉，重新安装ambari-server后，有可能还应用以前的安装数据，而这些数据时错误数据，所以需要删除掉。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /var/lib/pgsql</span><br></pre></td></tr></table></figure>
+<p>5，删除用户<br>ambari安装hadoop集群会创建一些用户，清除集群时有必要清除这些用户，并删除对应的文件夹。这样做可以避免集群运行时出现的文件访问权限错误的问题。     </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">userdel oozie  </span><br><span class="line">userdel hive  </span><br><span class="line">userdel ambari-qa  </span><br><span class="line">userdel flume    </span><br><span class="line">userdel hdfs    </span><br><span class="line">userdel knox    </span><br><span class="line">userdel storm    </span><br><span class="line">userdel mapred  </span><br><span class="line">userdel hbase    </span><br><span class="line">userdel tez    </span><br><span class="line">userdel zookeeper  </span><br><span class="line">userdel kafka    </span><br><span class="line">userdel falcon  </span><br><span class="line">userdel sqoop    </span><br><span class="line">userdel yarn    </span><br><span class="line">userdel hcat  </span><br><span class="line">userdel atlas  </span><br><span class="line">userdel spark</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /home/atlas  </span><br><span class="line">rm -rf /home/accumulo  </span><br><span class="line">rm -rf /home/hbase  </span><br><span class="line">rm -rf /home/hive  </span><br><span class="line">rm -rf /home/oozie  </span><br><span class="line">rm -rf /home/storm  </span><br><span class="line">rm -rf /home/yarn  </span><br><span class="line">rm -rf /home/ambari-qa  </span><br><span class="line">rm -rf /home/falcon  </span><br><span class="line">rm -rf /home/hcat  </span><br><span class="line">rm -rf /home/kafka  </span><br><span class="line">rm -rf /home/mahout  </span><br><span class="line">rm -rf /home/spark  </span><br><span class="line">rm -rf /home/tez  </span><br><span class="line">rm -rf /home/zookeeper  </span><br><span class="line">rm -rf /home/flume  </span><br><span class="line">rm -rf /home/hdfs  </span><br><span class="line">rm -rf /home/knox  </span><br><span class="line">rm -rf /home/mapred  </span><br><span class="line">rm -rf /home/sqoop</span><br></pre></td></tr></table></figure>
+<p>6，删除ambari遗留数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /var/lib/ambari*   </span><br><span class="line">rm -rf /usr/lib/python2.6/site-packages/ambari_*  </span><br><span class="line">rm -rf /usr/lib/python2.6/site-packages/resource_management  </span><br><span class="line">rm -rf /usr/lib/ambari-*  </span><br><span class="line">rm -rf /etc/ambari-*</span><br></pre></td></tr></table></figure>
+<p>7，删除其他hadoop组件遗留数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">rm -rf /etc/hadoop  </span><br><span class="line">rm -rf /etc/hbase  </span><br><span class="line">rm -rf /etc/hive   </span><br><span class="line">rm -rf /etc/oozie  </span><br><span class="line">rm -rf /etc/sqoop   </span><br><span class="line">rm -rf /etc/zookeeper  </span><br><span class="line">rm -rf /etc/flume   </span><br><span class="line">rm -rf /etc/storm   </span><br><span class="line">rm -rf /etc/hive-hcatalog  </span><br><span class="line">rm -rf /etc/tez   </span><br><span class="line">rm -rf /etc/falcon   </span><br><span class="line">rm -rf /etc/knox   </span><br><span class="line">rm -rf /etc/hive-webhcat  </span><br><span class="line">rm -rf /etc/kafka   </span><br><span class="line">rm -rf /etc/slider   </span><br><span class="line">rm -rf /etc/storm-slider-client  </span><br><span class="line">rm -rf /etc/spark   </span><br><span class="line">rm -rf /var/run/spark  </span><br><span class="line">rm -rf /var/run/hadoop  </span><br><span class="line">rm -rf /var/run/hbase  </span><br><span class="line">rm -rf /var/run/zookeeper  </span><br><span class="line">rm -rf /var/run/flume  </span><br><span class="line">rm -rf /var/run/storm  </span><br><span class="line">rm -rf /var/run/webhcat  </span><br><span class="line">rm -rf /var/run/hadoop-yarn  </span><br><span class="line">rm -rf /var/run/hadoop-mapreduce  </span><br><span class="line">rm -rf /var/run/kafka  </span><br><span class="line">rm -rf /var/log/hadoop  </span><br><span class="line">rm -rf /var/log/hbase  </span><br><span class="line">rm -rf /var/log/flume  </span><br><span class="line">rm -rf /var/log/storm  </span><br><span class="line">rm -rf /var/log/hadoop-yarn  </span><br><span class="line">rm -rf /var/log/hadoop-mapreduce  </span><br><span class="line">rm -rf /var/log/knox   </span><br><span class="line">rm -rf /usr/lib/flume  </span><br><span class="line">rm -rf /usr/lib/storm  </span><br><span class="line">rm -rf /var/lib/hive   </span><br><span class="line">rm -rf /var/lib/oozie  </span><br><span class="line">rm -rf /var/lib/flume  </span><br><span class="line">rm -rf /var/lib/hadoop-hdfs  </span><br><span class="line">rm -rf /var/lib/knox   </span><br><span class="line">rm -rf /var/log/hive   </span><br><span class="line">rm -rf /var/log/oozie  </span><br><span class="line">rm -rf /var/log/zookeeper  </span><br><span class="line">rm -rf /var/log/falcon  </span><br><span class="line">rm -rf /var/log/webhcat  </span><br><span class="line">rm -rf /var/log/spark  </span><br><span class="line">rm -rf /var/tmp/oozie  </span><br><span class="line">rm -rf /tmp/ambari-qa  </span><br><span class="line">rm -rf /var/hadoop  </span><br><span class="line">rm -rf /hadoop/falcon  </span><br><span class="line">rm -rf /tmp/hadoop   </span><br><span class="line">rm -rf /tmp/hadoop-hdfs  </span><br><span class="line">rm -rf /usr/hdp  </span><br><span class="line">rm -rf /usr/hadoop  </span><br><span class="line">rm -rf /opt/hadoop  </span><br><span class="line">rm -rf /tmp/hadoop  </span><br><span class="line">rm -rf /var/hadoop  </span><br><span class="line">rm -rf /hadoop</span><br></pre></td></tr></table></figure>
+<p>8，清理yum数据源</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
+<p>通过以上清理后，重新安装ambari和hadoop集群（包括HDFS，YARN+MapReduce2，Zookeeper，Ambari Metrics，Spark）成功。如果安装其他组件碰到由于未清理彻底而导致的问题，请留言指出需要清理的数据，本人会补全该文档。</p>
+
+    </div>
+
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/03/13/centos7-mariadb/" class="pre-post btn btn-default" title='centos7 安装mariadb 数据库'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">centos7 安装mariadb 数据库</span>
+        </a>
+    
+    
+        <a href="/2018/03/13/hadoop-hdp-ambari/" class="next-post btn btn-default" title='在centos7上安装hadoop hdp with ambari'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">在centos7上安装hadoop hdp with ambari</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        // new Valine({
+        //     av: AV,
+        //     el: '#vcomments',
+        //     appId: 'sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz',
+        //     appKey: 'iiz82gKScRxXnAUhzSl152xw',
+        //     placeholder: '说点什么吧',
+        //     notify: false,
+        //     verify: false,
+        //     avatar: 'mm',
+        //     meta: 'nick,mail'.split(','),
+        //     pageSize: '10',
+        //     path: window.location.pathname,
+        //     lang: 'null'.toLowerCase()
+        // })
+
+        new Valine({
+          // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+          av: AV,
+          el: '#vcomments', //
+          appId: 'sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz', // 这里填写上面得到的APP ID
+          appKey: 'iiz82gKScRxXnAUhzSl152xw', // 这里填写上面得到的APP KEY
+          placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!' // [v1.0.7 new]留言框占位提示文字
+        });
+
+    </script>
+
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hadoop-hdp-ambari-卸载"><span class="toc-text">hadoop hdp ambari 卸载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1，通过ambari将集群中的所用组件都关闭，如果关闭不了，直接kill-9-XXX"><span class="toc-text">1，通过ambari将集群中的所用组件都关闭，如果关闭不了，直接kill -9 XXX</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2，关闭ambari-server，ambari-agent"><span class="toc-text">2，关闭ambari-server，ambari-agent</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2018
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

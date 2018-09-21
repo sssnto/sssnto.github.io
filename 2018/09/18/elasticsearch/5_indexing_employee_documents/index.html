@@ -1,0 +1,388 @@
+<!DOCTYPE HTML>
+<html lang="null">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="sssnto">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://blog.sssnto.cn">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>elasticsearch-检索文档 | sssnto</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="sssnto" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+	<script>
+		(function(i, s, o, g, r, a, m) {
+		    i['GoogleAnalyticsObject'] = r;
+		    i[r] = i[r] || function() {
+		        (i[r].q = i[r].q || []).push(arguments)
+		    }, i[r].l = 1 * new Date();
+		    a = s.createElement(o),
+		    m = s.getElementsByTagName(o)[0];
+		    a.async = 1;
+		    a.src = g;
+		    m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-75365022-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66005934" charset="UTF-8"></script>
+
+    
+    <meta name="baidu-site-verification" content="WMddhGLcHI" />
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='sssnto'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> sssnto 日常随笔 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://blog.sssnto.cn">sssnto</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/云平台/"><i class="fa "></i>云平台</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/elasticsearch/"><i class="fa "></i>elasticsearch</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端框架/"><i class="fa "></i>后端框架</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/大数据/"><i class="fa "></i>大数据</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/aboutme/"><i class="fa "></i>关于我</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="elasticsearch-检索文档">
+            
+	            elasticsearch-检索文档
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/elasticsearch">
+            elasticsearch
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/elasticsearch" title='elasticsearch'>
+                        elasticsearch
+                    </a>
+                
+                    <a href="/tags/分布式搜索" title='分布式搜索'>
+                        分布式搜索
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/09/18</span>
+        </span>
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="索引雇员文档"><a href="#索引雇员文档" class="headerlink" title="索引雇员文档"></a>索引雇员文档</h1><p>第一个业务需求就是存储雇员数据。 这将会以 雇员文档 的形式存储：一个文档代表一个雇员。存储数据到 Elasticsearch 的行为叫做 索引 ，但在索引一个文档之前，需要确定将文档存储在哪里。</p>
+<p>一个 Elasticsearch 集群可以 包含多个 索引 ，相应的每个索引可以包含多个 类型 。 这些不同的类型存储着多个 文档 ，每个文档又有 多个 属性 。</p>
+<p>对于雇员目录，我们将做如下操作：</p>
+<ul>
+<li>每个雇员索引一个文档，包含该雇员的所有信息。</li>
+<li>每个文档都将是 employee 类型 。</li>
+<li>该类型位于 索引 megacorp 内。</li>
+<li>该索引保存在我们的 Elasticsearch 集群中。</li>
+</ul>
+<h2 id="添加雇员"><a href="#添加雇员" class="headerlink" title="添加雇员"></a>添加雇员</h2><p>实践中这非常简单（尽管看起来有很多步骤），我们可以通过一条命令完成所有这些动作：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PUT /megacorp/employee/1</span><br><span class="line">&#123;</span><br><span class="line">    &quot;first_name&quot; : &quot;John&quot;,</span><br><span class="line">    &quot;last_name&quot; :  &quot;Smith&quot;,</span><br><span class="line">    &quot;age&quot; :        25,</span><br><span class="line">    &quot;about&quot; :      &quot;I love to go rock climbing&quot;,</span><br><span class="line">    &quot;interests&quot;: [ &quot;sports&quot;, &quot;music&quot; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>注意，路径 /megacorp/employee/1 包含了三部分的信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">megacorp</span><br><span class="line">     索引名称</span><br><span class="line">employee</span><br><span class="line">    类型名称</span><br><span class="line">1</span><br><span class="line">    特定雇员的ID</span><br></pre></td></tr></table></figure>
+<p>请求体 —— JSON 文档 —— 包含了这位员工的所有详细信息，他的名字叫 John Smith ，今年 25 岁，喜欢攀岩。</p>
+<p>很简单！无需进行执行管理任务，如创建一个索引或指定每个属性的数据类型之类的，可以直接只索引一个文档。Elasticsearch 默认地完成其他一切，因此所有必需的管理任务都在后台使用默认设置完成。</p>
+<p>进行下一步前，让我们增加更多的员工信息到目录中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">PUT /megacorp/employee/2</span><br><span class="line">&#123;</span><br><span class="line">    &quot;first_name&quot; :  &quot;Jane&quot;,</span><br><span class="line">    &quot;last_name&quot; :   &quot;Smith&quot;,</span><br><span class="line">    &quot;age&quot; :         32,</span><br><span class="line">    &quot;about&quot; :       &quot;I like to collect rock albums&quot;,</span><br><span class="line">    &quot;interests&quot;:  [ &quot;music&quot; ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">PUT /megacorp/employee/3</span><br><span class="line">&#123;</span><br><span class="line">    &quot;first_name&quot; :  &quot;Douglas&quot;,</span><br><span class="line">    &quot;last_name&quot; :   &quot;Fir&quot;,</span><br><span class="line">    &quot;age&quot; :         35,</span><br><span class="line">    &quot;about&quot;:        &quot;I like to build cabinets&quot;,</span><br><span class="line">    &quot;interests&quot;:  [ &quot;forestry&quot; ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="检索文档"><a href="#检索文档" class="headerlink" title="检索文档"></a>检索文档</h2><p>目前我们已经在 Elasticsearch 中存储了一些数据， 接下来就能专注于实现应用的业务需求了。第一个需求是可以检索到单个雇员的数据。</p>
+<p>这在 Elasticsearch 中很简单。简单地执行 一个 HTTP GET 请求并指定文档的地址——索引库、类型和ID。 使用这三个信息可以返回原始的 JSON 文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /megacorp/employee/1</span><br></pre></td></tr></table></figure>
+<p>返回结果包含了文档的一些元数据，以及 _source 属性，内容是 John Smith 雇员的原始 JSON 文档：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"_index"</span> :   <span class="string">"megacorp"</span>,</span><br><span class="line">  <span class="attr">"_type"</span> :    <span class="string">"employee"</span>,</span><br><span class="line">  <span class="attr">"_id"</span> :      <span class="string">"1"</span>,</span><br><span class="line">  <span class="attr">"_version"</span> : <span class="number">1</span>,</span><br><span class="line">  <span class="attr">"found"</span> :    <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"_source"</span> :  &#123;</span><br><span class="line">      <span class="attr">"first_name"</span> :  <span class="string">"John"</span>,</span><br><span class="line">      <span class="attr">"last_name"</span> :   <span class="string">"Smith"</span>,</span><br><span class="line">      <span class="attr">"age"</span> :         <span class="number">25</span>,</span><br><span class="line">      <span class="attr">"about"</span> :       <span class="string">"I love to go rock climbing"</span>,</span><br><span class="line">      <span class="attr">"interests"</span>:  [ <span class="string">"sports"</span>, <span class="string">"music"</span> ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="轻量级搜索"><a href="#轻量级搜索" class="headerlink" title="轻量级搜索"></a>轻量级搜索</h2><p>一个 GET 是相当简单的，可以直接得到指定的文档。 现在尝试点儿稍微高级的功能，比如一个简单的搜索！</p>
+<p>第一个尝试的几乎是最简单的搜索了。我们使用下列请求来搜索所有雇员：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /megacorp/employee/_search</span><br></pre></td></tr></table></figure>
+<p>可以看到，我们仍然使用索引库 megacorp 以及类型 employee<code>，但与指定一个文档 ID 不同，这次使用</code>_search 。返回结果包括了所有三个文档，放在数组 hits 中。一个搜索默认返回十条结果。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="attr">"took"</span>:      <span class="number">6</span>,</span><br><span class="line">   <span class="attr">"timed_out"</span>: <span class="literal">false</span>,</span><br><span class="line">   "_shards": &#123; ... &#125;,</span><br><span class="line">   "hits": &#123;</span><br><span class="line">      "total":      3,</span><br><span class="line">      "max_score":  1,</span><br><span class="line">      "hits": [</span><br><span class="line">         &#123;</span><br><span class="line">            <span class="attr">"_index"</span>:         <span class="string">"megacorp"</span>,</span><br><span class="line">            <span class="attr">"_type"</span>:          <span class="string">"employee"</span>,</span><br><span class="line">            <span class="attr">"_id"</span>:            <span class="string">"3"</span>,</span><br><span class="line">            <span class="attr">"_score"</span>:         <span class="number">1</span>,</span><br><span class="line">            <span class="attr">"_source"</span>: &#123;</span><br><span class="line">               <span class="attr">"first_name"</span>:  <span class="string">"Douglas"</span>,</span><br><span class="line">               <span class="attr">"last_name"</span>:   <span class="string">"Fir"</span>,</span><br><span class="line">               <span class="attr">"age"</span>:         <span class="number">35</span>,</span><br><span class="line">               <span class="attr">"about"</span>:       <span class="string">"I like to build cabinets"</span>,</span><br><span class="line">               <span class="attr">"interests"</span>: [ <span class="string">"forestry"</span> ]</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;,</span><br><span class="line">         &#123;</span><br><span class="line">            <span class="attr">"_index"</span>:         <span class="string">"megacorp"</span>,</span><br><span class="line">            <span class="attr">"_type"</span>:          <span class="string">"employee"</span>,</span><br><span class="line">            <span class="attr">"_id"</span>:            <span class="string">"1"</span>,</span><br><span class="line">            <span class="attr">"_score"</span>:         <span class="number">1</span>,</span><br><span class="line">            <span class="attr">"_source"</span>: &#123;</span><br><span class="line">               <span class="attr">"first_name"</span>:  <span class="string">"John"</span>,</span><br><span class="line">               <span class="attr">"last_name"</span>:   <span class="string">"Smith"</span>,</span><br><span class="line">               <span class="attr">"age"</span>:         <span class="number">25</span>,</span><br><span class="line">               <span class="attr">"about"</span>:       <span class="string">"I love to go rock climbing"</span>,</span><br><span class="line">               <span class="attr">"interests"</span>: [ <span class="string">"sports"</span>, <span class="string">"music"</span> ]</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;,</span><br><span class="line">         &#123;</span><br><span class="line">            <span class="attr">"_index"</span>:         <span class="string">"megacorp"</span>,</span><br><span class="line">            <span class="attr">"_type"</span>:          <span class="string">"employee"</span>,</span><br><span class="line">            <span class="attr">"_id"</span>:            <span class="string">"2"</span>,</span><br><span class="line">            <span class="attr">"_score"</span>:         <span class="number">1</span>,</span><br><span class="line">            <span class="attr">"_source"</span>: &#123;</span><br><span class="line">               <span class="attr">"first_name"</span>:  <span class="string">"Jane"</span>,</span><br><span class="line">               <span class="attr">"last_name"</span>:   <span class="string">"Smith"</span>,</span><br><span class="line">               <span class="attr">"age"</span>:         <span class="number">32</span>,</span><br><span class="line">               <span class="attr">"about"</span>:       <span class="string">"I like to collect rock albums"</span>,</span><br><span class="line">               <span class="attr">"interests"</span>: [ <span class="string">"music"</span> ]</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">      ]</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：返回结果不仅告知匹配了哪些文档，还包含了整个文档本身：显示搜索结果给最终用户所需的全部信息。</p>
+</blockquote>
+<p>接下来，尝试下搜索姓氏为 <code>Smith</code> 的雇员。为此，我们将使用一个 高亮 搜索，很容易通过命令行完成。这个方法一般涉及到一个 查询字符串 （<em>query-string</em>） 搜索，因为我们通过一个URL参数来传递查询信息给搜索接口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET /megacorp/employee/_search?q=last_name:Smith</span><br></pre></td></tr></table></figure>
+<p>我们仍然在请求路径中使用 _search 端点，并将查询本身赋值给参数 q= 。返回结果给出了所有的 Smith：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   ...</span><br><span class="line">   "hits": &#123;</span><br><span class="line">      "total":      2,</span><br><span class="line">      "max_score":  0.30685282,</span><br><span class="line">      "hits": [</span><br><span class="line">         &#123;</span><br><span class="line">            ...</span><br><span class="line">            "_source": &#123;</span><br><span class="line">               "first_name":  "John",</span><br><span class="line">               "last_name":   "Smith",</span><br><span class="line">               "age":         25,</span><br><span class="line">               "about":       "I love to go rock climbing",</span><br><span class="line">               "interests": [ "sports", "music" ]</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;,</span><br><span class="line">         &#123;</span><br><span class="line">            ...</span><br><span class="line">            "_source": &#123;</span><br><span class="line">               "first_name":  "Jane",</span><br><span class="line">               "last_name":   "Smith",</span><br><span class="line">               "age":         32,</span><br><span class="line">               "about":       "I like to collect rock albums",</span><br><span class="line">               "interests": [ "music" ]</span><br><span class="line">            &#125;</span><br><span class="line">         &#125;</span><br><span class="line">      ]</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/09/18/elasticsearch/6_search_with_query_dsl/" class="pre-post btn btn-default" title='elasticsearch-搜索'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">elasticsearch-搜索</span>
+        </a>
+    
+    
+        <a href="/2018/09/18/elasticsearch/4_elasticsearch_exp/" class="next-post btn btn-default" title='elasticsearch-简单的小需求'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">elasticsearch-简单的小需求</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        // new Valine({
+        //     av: AV,
+        //     el: '#vcomments',
+        //     appId: 'sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz',
+        //     appKey: 'iiz82gKScRxXnAUhzSl152xw',
+        //     placeholder: '说点什么吧',
+        //     notify: false,
+        //     verify: false,
+        //     avatar: 'mm',
+        //     meta: 'nick,mail'.split(','),
+        //     pageSize: '10',
+        //     path: window.location.pathname,
+        //     lang: 'null'.toLowerCase()
+        // })
+
+        new Valine({
+          // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+          av: AV,
+          el: '#vcomments', //
+          appId: 'sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz', // 这里填写上面得到的APP ID
+          appKey: 'iiz82gKScRxXnAUhzSl152xw', // 这里填写上面得到的APP KEY
+          placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!' // [v1.0.7 new]留言框占位提示文字
+        });
+
+    </script>
+
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#索引雇员文档"><span class="toc-text">索引雇员文档</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加雇员"><span class="toc-text">添加雇员</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检索文档"><span class="toc-text">检索文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#轻量级搜索"><span class="toc-text">轻量级搜索</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2018
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

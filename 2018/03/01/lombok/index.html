@@ -1,0 +1,388 @@
+<!DOCTYPE HTML>
+<html lang="null">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="sssnto">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://blog.sssnto.cn">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>lombok简介以及使用 | sssnto</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="sssnto" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+	<script>
+		(function(i, s, o, g, r, a, m) {
+		    i['GoogleAnalyticsObject'] = r;
+		    i[r] = i[r] || function() {
+		        (i[r].q = i[r].q || []).push(arguments)
+		    }, i[r].l = 1 * new Date();
+		    a = s.createElement(o),
+		    m = s.getElementsByTagName(o)[0];
+		    a.async = 1;
+		    a.src = g;
+		    m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-75365022-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66005934" charset="UTF-8"></script>
+
+    
+    <meta name="baidu-site-verification" content="WMddhGLcHI" />
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='sssnto'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> sssnto 日常随笔 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://blog.sssnto.cn">sssnto</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/云平台/"><i class="fa "></i>云平台</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/elasticsearch/"><i class="fa "></i>elasticsearch</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端框架/"><i class="fa "></i>后端框架</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/大数据/"><i class="fa "></i>大数据</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/aboutme/"><i class="fa "></i>关于我</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="lombok简介以及使用">
+            
+	            lombok简介以及使用
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/后端框架">
+            后端框架
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/lombok" title='lombok'>
+                        lombok
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/03/01</span>
+        </span>
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="lombok简介"><a href="#lombok简介" class="headerlink" title="lombok简介"></a>lombok简介</h2><blockquote>
+<p>Lombok是一个可以通过简单的注解形式来帮助我们简化消除一些必须有但显得很臃肿的Java代码的工具，通过使用对应的注解，可以在编译源码的时候生成对应的方法。</p>
+</blockquote>
+<p>官方地址：<a href="https://projectlombok.org" target="_blank" rel="noopener">https://projectlombok.org</a><br>github地址：<a href="https://github.com/rzwitserloot/lombok。" target="_blank" rel="noopener">https://github.com/rzwitserloot/lombok。</a></p>
+<p>那么lombok到底是个什么呢，lombok是一个可以通过简单的注解的形式来帮助我们简化消除一些必须有但显得很臃肿的 Java 代码的工具，简单来说，比如我们新建了一个类，然后在其中写了几个字段，然后通常情况下我们需要手动去建立getter和setter方法啊，构造函数啊之类的，lombok的作用就是为了省去我们手动创建这些代码的麻烦，它能够在我们编译源码的时候自动帮我们生成这些方法。</p>
+<p>lombok能够达到的效果就是在源码中不需要写一些通用的方法，但是在编译生成的字节码文件中会帮我们生成这些方法，这就是lombok的神奇作用。</p>
+<p>虽然有人可能会说IDE里面都自带自动生成这些方法的功能，但是使用lombok会使你的代码看起来更加简洁，写起来也更加方便。</p>
+<h2 id="lombok安装"><a href="#lombok安装" class="headerlink" title="lombok安装"></a>lombok安装</h2><p>lombok的安装跟一般引用jar包没有什么区别，可以到官网上下载最新的jar包，然后导入到项目里面就好啦。</p>
+<p>Maven添加依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;1.16.10&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+<p>Intellij idea开发的话需要安装Lombok plugin，同时设置 Setting -&gt; Compiler -&gt; Annotation Processors -&gt; Enable annotation processing勾选。</p>
+<h2 id="lombok使用"><a href="#lombok使用" class="headerlink" title="lombok使用"></a>lombok使用</h2><p>lombok使用过程中主要是靠注解起作用的，官网上的文档里面有所有的注解，这里不一一罗列，只说明其中几个比较常用的。</p>
+<h3 id="NonNull"><a href="#NonNull" class="headerlink" title="@NonNull"></a>@NonNull</h3><p>@NonNull: 可以帮助我们避免空指针。<br>您可以在方法或构造函数的参数上使用@NonNull来让lombok为您生成一个空检查语句。<br>@NonNull 会先检查被注解的参数是否为空，如果为空立即抛出空指针异常。该方法会在进入方法的最顶端执行。</p>
+<ul>
+<li><p>with lombok</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import lombok.NonNull;</span><br><span class="line"></span><br><span class="line">public class NonNullExample extends Something &#123;</span><br><span class="line">  private String name;</span><br><span class="line">  </span><br><span class="line">  public NonNullExample(@NonNull Person person) &#123;</span><br><span class="line">    super(&quot;Hello&quot;);</span><br><span class="line">    this.name = person.getName();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Vanilla Java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public class NonNullExample extends Something &#123;</span><br><span class="line">  private String name;</span><br><span class="line">  </span><br><span class="line">  public NonNullExample(Person person) &#123;</span><br><span class="line">    super(&quot;Hello&quot;);</span><br><span class="line">    if (person == null) &#123;</span><br><span class="line">      throw new NullPointerException(&quot;person&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    this.name = person.getName();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="Getter-and-Setter"><a href="#Getter-and-Setter" class="headerlink" title="@Getter and @Setter"></a>@Getter and @Setter</h3><p>Getter/@Setter可以帮助我们自动来生成默认的getter/setter。我们可以使用它们来注释任何字段。<br>一个默认的getter只是简单地返回这个字段，如果这个字段被称为foo（或者如果字段的类型是boolean，那么它是isFoo）就被命名为getFoo。 如果该字段名为foo，则返回void，并将与该字段具有相同类型的1个参数的情况设置为默认setter。 它只是将该字段设置为该值。</p>
+<blockquote>
+<p>除非明确指定AccessLevel，否则生成的getter / setter方法将为public，如下例所示。访问级别为PUBLIC, PROTECTED, PACKAGE, and PRIVATE。<br>通过使用特殊的AccessLevel.NONE访问级别，您可以始终手动禁用任何字段的getter / setter生成</p>
+</blockquote>
+<p>@Getter and @Setter可以在字段上使用，也可以在类上使用。</p>
+<ul>
+<li><p>With Lombok</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import lombok.AccessLevel;</span><br><span class="line">import lombok.Getter;</span><br><span class="line">import lombok.Setter;</span><br><span class="line"></span><br><span class="line">public class GetterSetterExample &#123;</span><br><span class="line">  /**</span><br><span class="line">   * Age of the person. Water is wet.</span><br><span class="line">   * </span><br><span class="line">   * @param age New value for this person&apos;s age. Sky is blue.</span><br><span class="line">   * @return The current value of this person&apos;s age. Circles are round.</span><br><span class="line">   */</span><br><span class="line">  @Getter @Setter private int age = 10;</span><br><span class="line">  </span><br><span class="line">  /**</span><br><span class="line">   * Name of the person.</span><br><span class="line">   * -- SETTER --</span><br><span class="line">   * Changes the name of this person.</span><br><span class="line">   * </span><br><span class="line">   * @param name The new value.</span><br><span class="line">   */</span><br><span class="line">  @Setter(AccessLevel.PROTECTED) private String name;</span><br><span class="line">  </span><br><span class="line">  @Override public String toString() &#123;</span><br><span class="line">    return String.format(&quot;%s (age: %d)&quot;, name, age);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Vanilla Java</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">public class GetterSetterExample &#123;</span><br><span class="line">  /**</span><br><span class="line">   * Age of the person. Water is wet.</span><br><span class="line">   */</span><br><span class="line">  private int age = 10;</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * Name of the person.</span><br><span class="line">   */</span><br><span class="line">  private String name;</span><br><span class="line">  </span><br><span class="line">  @Override public String toString() &#123;</span><br><span class="line">    return String.format(&quot;%s (age: %d)&quot;, name, age);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  /**</span><br><span class="line">   * Age of the person. Water is wet.</span><br><span class="line">   *</span><br><span class="line">   * @return The current value of this person&apos;s age. Circles are round.</span><br><span class="line">   */</span><br><span class="line">  public int getAge() &#123;</span><br><span class="line">    return age;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  /**</span><br><span class="line">   * Age of the person. Water is wet.</span><br><span class="line">   *</span><br><span class="line">   * @param age New value for this person&apos;s age. Sky is blue.</span><br><span class="line">   */</span><br><span class="line">  public void setAge(int age) &#123;</span><br><span class="line">    this.age = age;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  /**</span><br><span class="line">   * Changes the name of this person.</span><br><span class="line">   *</span><br><span class="line">   * @param name The new value.</span><br><span class="line">   */</span><br><span class="line">  protected void setName(String name) &#123;</span><br><span class="line">    this.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p>未完待续。。。。。</p>
+
+    </div>
+
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/03/13/hive-udf/" class="pre-post btn btn-default" title='ambari hive udf 使用'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">ambari hive udf 使用</span>
+        </a>
+    
+    
+        <a href="/2018/01/17/mardown-syntax/" class="next-post btn btn-default" title='【转】Markdown中文语法'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">【转】Markdown中文语法</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        // new Valine({
+        //     av: AV,
+        //     el: '#vcomments',
+        //     appId: 'sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz',
+        //     appKey: 'iiz82gKScRxXnAUhzSl152xw',
+        //     placeholder: '说点什么吧',
+        //     notify: false,
+        //     verify: false,
+        //     avatar: 'mm',
+        //     meta: 'nick,mail'.split(','),
+        //     pageSize: '10',
+        //     path: window.location.pathname,
+        //     lang: 'null'.toLowerCase()
+        // })
+
+        new Valine({
+          // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+          av: AV,
+          el: '#vcomments', //
+          appId: 'sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz', // 这里填写上面得到的APP ID
+          appKey: 'iiz82gKScRxXnAUhzSl152xw', // 这里填写上面得到的APP KEY
+          placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!' // [v1.0.7 new]留言框占位提示文字
+        });
+
+    </script>
+
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#lombok简介"><span class="toc-text">lombok简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lombok安装"><span class="toc-text">lombok安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lombok使用"><span class="toc-text">lombok使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#NonNull"><span class="toc-text">@NonNull</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Getter-and-Setter"><span class="toc-text">@Getter and @Setter</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2018
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE HTML>
+<html lang="null">
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="sssnto">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://blog.sssnto.cn">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+
+<title>【转】整理的开源项目地址 | sssnto</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="sssnto" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+	<script>
+		(function(i, s, o, g, r, a, m) {
+		    i['GoogleAnalyticsObject'] = r;
+		    i[r] = i[r] || function() {
+		        (i[r].q = i[r].q || []).push(arguments)
+		    }, i[r].l = 1 * new Date();
+		    a = s.createElement(o),
+		    m = s.getElementsByTagName(o)[0];
+		    a.async = 1;
+		    a.src = g;
+		    m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-75365022-2', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+	<script type="text/javascript" src="http://tajs.qq.com/stats?sId=66005934" charset="UTF-8"></script>
+
+    
+    <meta name="baidu-site-verification" content="WMddhGLcHI" />
+
+
+    <script>
+        (function(){
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+</head>
+
+
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='sssnto'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                <h2> sssnto 日常随笔 </h2>
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://blog.sssnto.cn">sssnto</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/云平台/"><i class="fa "></i>云平台</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/elasticsearch/"><i class="fa "></i>elasticsearch</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端框架/"><i class="fa "></i>后端框架</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/大数据/"><i class="fa "></i>大数据</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/aboutme/"><i class="fa "></i>关于我</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="【转】整理的开源项目地址">
+            
+	            【转】整理的开源项目地址
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ ">
+             
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2017/07/11</span>
+        </span>
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>436</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="下面提供一些跟开源相关的文章链接："><a href="#下面提供一些跟开源相关的文章链接：" class="headerlink" title="下面提供一些跟开源相关的文章链接："></a>下面提供一些跟开源相关的文章链接：</h1><h2 id="1-Apache的开源软件列表"><a href="#1-Apache的开源软件列表" class="headerlink" title="1.Apache的开源软件列表"></a>1.Apache的开源软件列表</h2><blockquote>
+<p><a href="http://www.oschina.net/project/apache" target="_blank" rel="noopener">http://www.oschina.net/project/apache</a></p>
+</blockquote>
+<h2 id="2-Java开源Apache项目"><a href="#2-Java开源Apache项目" class="headerlink" title="2. Java开源Apache项目"></a>2. Java开源Apache项目</h2><blockquote>
+<p><a href="http://www.open-open.com/56.htm" target="_blank" rel="noopener">http://www.open-open.com/56.htm</a></p>
+</blockquote>
+<h2 id="3-阿里巴巴的开源软件列表"><a href="#3-阿里巴巴的开源软件列表" class="headerlink" title="3. 阿里巴巴的开源软件列表"></a>3. 阿里巴巴的开源软件列表</h2><blockquote>
+<p><a href="http://www.oschina.net/project/alibaba" target="_blank" rel="noopener">http://www.oschina.net/project/alibaba</a></p>
+</blockquote>
+<h2 id="4-百度的开源软件列表"><a href="#4-百度的开源软件列表" class="headerlink" title="4. 百度的开源软件列表"></a>4. 百度的开源软件列表</h2><blockquote>
+<p><a href="http://www.oschina.net/project/baidu" target="_blank" rel="noopener">http://www.oschina.net/project/baidu</a></p>
+</blockquote>
+<h2 id="5-腾讯的开源软件列表"><a href="#5-腾讯的开源软件列表" class="headerlink" title="5. 腾讯的开源软件列表"></a>5. 腾讯的开源软件列表</h2><blockquote>
+<p><a href="http://www.oschina.net/project/tencent" target="_blank" rel="noopener">http://www.oschina.net/project/tencent</a></p>
+</blockquote>
+<h2 id="6-华为的开源软件列表"><a href="#6-华为的开源软件列表" class="headerlink" title="6. 华为的开源软件列表"></a>6. 华为的开源软件列表</h2><blockquote>
+<p><a href="http://www.oschina.net/project/huawei" target="_blank" rel="noopener">http://www.oschina.net/project/huawei</a></p>
+</blockquote>
+<h2 id="7-Netflix的开源软件列表"><a href="#7-Netflix的开源软件列表" class="headerlink" title="7. Netflix的开源软件列表"></a>7. Netflix的开源软件列表</h2><blockquote>
+<p><a href="http://www.oschina.net/project/netflix" target="_blank" rel="noopener">http://www.oschina.net/project/netflix</a></p>
+</blockquote>
+<h2 id="8-大公司都有哪些开源项目"><a href="#8-大公司都有哪些开源项目" class="headerlink" title="8. 大公司都有哪些开源项目"></a>8. 大公司都有哪些开源项目</h2><blockquote>
+<p><a href="http://www.cnblogs.com/dunitian/p/5581520.html" target="_blank" rel="noopener">http://www.cnblogs.com/dunitian/p/5581520.html</a></p>
+</blockquote>
+<h2 id="9-2017年你不能错过的Java类库"><a href="#9-2017年你不能错过的Java类库" class="headerlink" title="9. 2017年你不能错过的Java类库"></a>9. 2017年你不能错过的Java类库</h2><blockquote>
+<p><a href="http://www.importnew.com/23858.html" target="_blank" rel="noopener">http://www.importnew.com/23858.html</a></p>
+</blockquote>
+<h2 id="10-公司开源导航页"><a href="#10-公司开源导航页" class="headerlink" title="10. 公司开源导航页"></a>10. 公司开源导航页</h2><blockquote>
+<p><a href="https://www.oschina.net/company" target="_blank" rel="noopener">https://www.oschina.net/company</a></p>
+</blockquote>
+<h1 id="下面提供一些开源项目链接地址："><a href="#下面提供一些开源项目链接地址：" class="headerlink" title="下面提供一些开源项目链接地址："></a>下面提供一些开源项目链接地址：</h1><h2 id="【spring项目】"><a href="#【spring项目】" class="headerlink" title="【spring项目】"></a>【spring项目】</h2><h3 id="1-spring以及子项目"><a href="#1-spring以及子项目" class="headerlink" title="1. spring以及子项目:"></a>1. spring以及子项目:</h3><blockquote>
+<p>github地址:<a href="https://github.com/spring-projects" target="_blank" rel="noopener">https://github.com/spring-projects</a></p>
+</blockquote>
+<h2 id="【spring-cloud项目】"><a href="#【spring-cloud项目】" class="headerlink" title="【spring cloud项目】"></a>【spring cloud项目】</h2><h3 id="1-spring-cloud系列项目"><a href="#1-spring-cloud系列项目" class="headerlink" title="1. spring cloud系列项目:"></a>1. spring cloud系列项目:</h3><blockquote>
+<p>github地址:<a href="https://github.com/spring-cloud" target="_blank" rel="noopener">https://github.com/spring-cloud</a></p>
+</blockquote>
+<h2 id="【apache基金会】"><a href="#【apache基金会】" class="headerlink" title="【apache基金会】"></a>【apache基金会】</h2><h3 id="1-apache开源项目列表"><a href="#1-apache开源项目列表" class="headerlink" title="1. apache开源项目列表:"></a>1. apache开源项目列表:</h3><blockquote>
+<p>apache地址:<a href="http://www.apache.org/index.html#projects-list" target="_blank" rel="noopener">http://www.apache.org/index.html#projects-list</a></p>
+</blockquote>
+<h3 id="2-apache项目github地址"><a href="#2-apache项目github地址" class="headerlink" title="2. apache项目github地址:"></a>2. apache项目github地址:</h3><blockquote>
+<p>github地址:<a href="https://github.com/apache" target="_blank" rel="noopener">https://github.com/apache</a></p>
+</blockquote>
+<h2 id="【eclipse基金会】"><a href="#【eclipse基金会】" class="headerlink" title="【eclipse基金会】"></a>【eclipse基金会】</h2><h3 id="1-轻量级的高性能JVM应用平台Vert-x"><a href="#1-轻量级的高性能JVM应用平台Vert-x" class="headerlink" title="1. 轻量级的高性能JVM应用平台Vert.x"></a>1. 轻量级的高性能JVM应用平台Vert.x</h3><blockquote>
+<p>apache地址:<a href="https://github.com/eclipse/vert.x" target="_blank" rel="noopener">https://github.com/eclipse/vert.x</a><br>官方参考文档：<a href="http://vertx.io/docs/" target="_blank" rel="noopener">http://vertx.io/docs/</a></p>
+</blockquote>
+<h2 id="【阿里巴巴】"><a href="#【阿里巴巴】" class="headerlink" title="【阿里巴巴】"></a>【阿里巴巴】</h2><h3 id="1-开源JSON处理框架fastjson"><a href="#1-开源JSON处理框架fastjson" class="headerlink" title="1. 开源JSON处理框架fastjson:"></a>1. 开源JSON处理框架fastjson:</h3><blockquote>
+<p>github地址:<a href="https://github.com/alibaba/fastjson" target="_blank" rel="noopener">https://github.com/alibaba/fastjson</a></p>
+</blockquote>
+<h3 id="2-开源数据库连接池druid："><a href="#2-开源数据库连接池druid：" class="headerlink" title="2. 开源数据库连接池druid："></a>2. 开源数据库连接池druid：</h3><blockquote>
+<p>github地址:<a href="https://github.com/alibaba/druid" target="_blank" rel="noopener">https://github.com/alibaba/druid</a></p>
+</blockquote>
+<h3 id="3-开源分布式服务框架dubbo："><a href="#3-开源分布式服务框架dubbo：" class="headerlink" title="3. 开源分布式服务框架dubbo："></a>3. 开源分布式服务框架dubbo：</h3><blockquote>
+<p>github地址:<a href="https://github.com/alibaba/dubbo" target="_blank" rel="noopener">https://github.com/alibaba/dubbo</a></p>
+</blockquote>
+<h3 id="4-开源分布式开放消息队列RocketMQ："><a href="#4-开源分布式开放消息队列RocketMQ：" class="headerlink" title="4. 开源分布式开放消息队列RocketMQ："></a>4. 开源分布式开放消息队列RocketMQ：</h3><blockquote>
+<p>github地址:<a href="https://github.com/alibaba/RocketMQ" target="_blank" rel="noopener">https://github.com/alibaba/RocketMQ</a></p>
+</blockquote>
+<blockquote>
+<p>备注：RocketMQ已经进入apache孵化器,在孵化器的github地址如下：<br>github地址:<a href="https://github.com/apache/incubator-rocketmq" target="_blank" rel="noopener">https://github.com/apache/incubator-rocketmq</a></p>
+</blockquote>
+<h3 id="5-开源实时流式计算框架jstorm"><a href="#5-开源实时流式计算框架jstorm" class="headerlink" title="5. 开源实时流式计算框架jstorm"></a>5. 开源实时流式计算框架jstorm</h3><blockquote>
+<p>github地址:<a href="https://github.com/alibaba/jstorm" target="_blank" rel="noopener">https://github.com/alibaba/jstorm</a></p>
+</blockquote>
+<h3 id="6-开源分布式数据库同步系统otter"><a href="#6-开源分布式数据库同步系统otter" class="headerlink" title="6. 开源分布式数据库同步系统otter"></a>6. 开源分布式数据库同步系统otter</h3><blockquote>
+<p>github地址:<a href="https://github.com/alibaba/otter" target="_blank" rel="noopener">https://github.com/alibaba/otter</a></p>
+</blockquote>
+<h3 id="7-开源分布式数据库服务中间件cobar"><a href="#7-开源分布式数据库服务中间件cobar" class="headerlink" title="7.开源分布式数据库服务中间件cobar"></a>7.开源分布式数据库服务中间件cobar</h3><blockquote>
+<p>github地址:<a href="https://github.com/alibaba/cobar" target="_blank" rel="noopener">https://github.com/alibaba/cobar</a></p>
+</blockquote>
+<h2 id="【唯品会】"><a href="#【唯品会】" class="headerlink" title="【唯品会】"></a>【唯品会】</h2><h3 id="1-开源调度框架Saturn"><a href="#1-开源调度框架Saturn" class="headerlink" title="1. 开源调度框架Saturn:"></a>1. 开源调度框架Saturn:</h3><blockquote>
+<p>github地址:<a href="https://github.com/vipshop/Saturn" target="_blank" rel="noopener">https://github.com/vipshop/Saturn</a></p>
+</blockquote>
+<h2 id="【当当】"><a href="#【当当】" class="headerlink" title="【当当】"></a>【当当】</h2><h3 id="1-开源调度框架elastic-job"><a href="#1-开源调度框架elastic-job" class="headerlink" title="1. 开源调度框架elastic-job:"></a>1. 开源调度框架elastic-job:</h3><blockquote>
+<p>github地址:<a href="https://github.com/dangdangdotcom/elastic-job" target="_blank" rel="noopener">https://github.com/dangdangdotcom/elastic-job</a></p>
+</blockquote>
+<h3 id="2-开源分库分表中间件Sharding-JDBC"><a href="#2-开源分库分表中间件Sharding-JDBC" class="headerlink" title="2. 开源分库分表中间件Sharding-JDBC:"></a>2. 开源分库分表中间件Sharding-JDBC:</h3><blockquote>
+<p>github地址:<a href="https://github.com/dangdangdotcom/sharding-jdbc" target="_blank" rel="noopener">https://github.com/dangdangdotcom/sharding-jdbc</a></p>
+</blockquote>
+<h3 id="3-开源分布式服务框架dubbox"><a href="#3-开源分布式服务框架dubbox" class="headerlink" title="3. 开源分布式服务框架dubbox:"></a>3. 开源分布式服务框架dubbox:</h3><blockquote>
+<p>github地址:<a href="https://github.com/dangdangdotcom/dubbox" target="_blank" rel="noopener">https://github.com/dangdangdotcom/dubbox</a></p>
+</blockquote>
+<h2 id="【百度】"><a href="#【百度】" class="headerlink" title="【百度】"></a>【百度】</h2><h3 id="1-分布式系统配置管理disconf"><a href="#1-分布式系统配置管理disconf" class="headerlink" title="1.分布式系统配置管理disconf"></a>1.分布式系统配置管理disconf</h3><blockquote>
+<p>github地址:<a href="https://github.com/knightliao/disconf" target="_blank" rel="noopener">https://github.com/knightliao/disconf</a></p>
+</blockquote>
+<h2 id="【腾讯】"><a href="#【腾讯】" class="headerlink" title="【腾讯】"></a>【腾讯】</h2><h3 id="1-开源基于微服务的平台Tars"><a href="#1-开源基于微服务的平台Tars" class="headerlink" title="1. 开源基于微服务的平台Tars"></a>1. 开源基于微服务的平台Tars</h3><blockquote>
+<p>github地址:<a href="https://github.com/Tencent/Tars" target="_blank" rel="noopener">https://github.com/Tencent/Tars</a></p>
+</blockquote>
+<h2 id="【携程】"><a href="#【携程】" class="headerlink" title="【携程】"></a>【携程】</h2><h3 id="1-开源Redis多数据中心复制管理系统x-pipe"><a href="#1-开源Redis多数据中心复制管理系统x-pipe" class="headerlink" title="1. 开源Redis多数据中心复制管理系统x-pipe"></a>1. 开源Redis多数据中心复制管理系统x-pipe</h3><blockquote>
+<p>github地址:<a href="https://github.com/ctripcorp/x-pipe" target="_blank" rel="noopener">https://github.com/ctripcorp/x-pipe</a></p>
+</blockquote>
+<h3 id="2-开源配置管理平台apollo"><a href="#2-开源配置管理平台apollo" class="headerlink" title="2. 开源配置管理平台apollo"></a>2. 开源配置管理平台apollo</h3><blockquote>
+<p>github地址:<a href="https://github.com/ctripcorp/apollo" target="_blank" rel="noopener">https://github.com/ctripcorp/apollo</a></p>
+</blockquote>
+<h3 id="3-开源数据库访问框架dal"><a href="#3-开源数据库访问框架dal" class="headerlink" title="3. 开源数据库访问框架dal"></a>3. 开源数据库访问框架dal</h3><blockquote>
+<p>github地址:<a href="https://github.com/ctripcorp/dal" target="_blank" rel="noopener">https://github.com/ctripcorp/dal</a></p>
+</blockquote>
+<h2 id="【大众点评】"><a href="#【大众点评】" class="headerlink" title="【大众点评】"></a>【大众点评】</h2><h3 id="1-开源实时应用监控平台cat"><a href="#1-开源实时应用监控平台cat" class="headerlink" title="1. 开源实时应用监控平台cat"></a>1. 开源实时应用监控平台cat</h3><blockquote>
+<p>github地址:<a href="https://github.com/dianping/cat" target="_blank" rel="noopener">https://github.com/dianping/cat</a></p>
+</blockquote>
+<h2 id="【谷歌Google】"><a href="#【谷歌Google】" class="headerlink" title="【谷歌Google】"></a>【谷歌Google】</h2><h3 id="1-开源java轻量级IOC框架Guice"><a href="#1-开源java轻量级IOC框架Guice" class="headerlink" title="1. 开源java轻量级IOC框架Guice"></a>1. 开源java轻量级IOC框架Guice</h3><blockquote>
+<p>github地址:<a href="https://github.com/google/guice" target="_blank" rel="noopener">https://github.com/google/guice</a></p>
+</blockquote>
+<h3 id="2-开源基于java1-6的类库集合的扩展guava"><a href="#2-开源基于java1-6的类库集合的扩展guava" class="headerlink" title="2. 开源基于java1.6的类库集合的扩展guava"></a>2. 开源基于java1.6的类库集合的扩展guava</h3><blockquote>
+<p>github地址:<a href="https://github.com/google/guava" target="_blank" rel="noopener">https://github.com/google/guava</a></p>
+</blockquote>
+<h2 id="【移动支付公司Square】"><a href="#【移动支付公司Square】" class="headerlink" title="【移动支付公司Square】"></a>【移动支付公司Square】</h2><h3 id="1-开源处理网络请求的网络框架OkHttp"><a href="#1-开源处理网络请求的网络框架OkHttp" class="headerlink" title="1. 开源处理网络请求的网络框架OkHttp"></a>1. 开源处理网络请求的网络框架OkHttp</h3><blockquote>
+<p>github地址:<a href="https://github.com/square/okhttp" target="_blank" rel="noopener">https://github.com/square/okhttp</a></p>
+</blockquote>
+<h3 id="2-网络请求框架Retrofit"><a href="#2-网络请求框架Retrofit" class="headerlink" title="2. 网络请求框架Retrofit"></a>2. 网络请求框架Retrofit</h3><blockquote>
+<p>github地址:<a href="https://github.com/square/retrofit" target="_blank" rel="noopener">https://github.com/square/retrofit</a></p>
+</blockquote>
+<h2 id="【mybatis项目】"><a href="#【mybatis项目】" class="headerlink" title="【mybatis项目】"></a>【mybatis项目】</h2><h3 id="1-Sql映射持久层框架mybatis"><a href="#1-Sql映射持久层框架mybatis" class="headerlink" title="1. Sql映射持久层框架mybatis"></a>1. Sql映射持久层框架mybatis</h3><blockquote>
+<p>github地址:<a href="https://github.com/mybatis/mybatis-3" target="_blank" rel="noopener">https://github.com/mybatis/mybatis-3</a></p>
+</blockquote>
+<h2 id="【hibernate项目】"><a href="#【hibernate项目】" class="headerlink" title="【hibernate项目】"></a>【hibernate项目】</h2><h3 id="1-对象关系映射框架hibernate"><a href="#1-对象关系映射框架hibernate" class="headerlink" title="1. 对象关系映射框架hibernate"></a>1. 对象关系映射框架hibernate</h3><blockquote>
+<p>github地址:<a href="https://github.com/hibernate/hibernate-orm" target="_blank" rel="noopener">https://github.com/hibernate/hibernate-orm</a></p>
+</blockquote>
+<ul>
+<li><p>开源组织或者个人项目</p>
+</li>
+<li><p>说明：由于一些项目的名字比较类似,为了区分把作者加上,作者署名团队或者主要开发者。</p>
+</li>
+</ul>
+<h2 id="1-spring-boot中文参考文档"><a href="#1-spring-boot中文参考文档" class="headerlink" title="1. spring boot中文参考文档"></a>1. spring boot中文参考文档</h2><blockquote>
+<p>作者：qibaoguang<br>github地址:<a href="https://github.com/qibaoguang/Spring-Boot-Reference-Guide" target="_blank" rel="noopener">https://github.com/qibaoguang/Spring-Boot-Reference-Guide</a></p>
+</blockquote>
+<h2 id="2-spring4中文参考文档"><a href="#2-spring4中文参考文档" class="headerlink" title="2. spring4中文参考文档"></a>2. spring4中文参考文档</h2><blockquote>
+<p>作者：Way Lau<br>github地址:<a href="https://github.com/waylau/spring-framework-4-reference" target="_blank" rel="noopener">https://github.com/waylau/spring-framework-4-reference</a></p>
+</blockquote>
+<h2 id="3-开源分布式数据库中间件Mycat-Server"><a href="#3-开源分布式数据库中间件Mycat-Server" class="headerlink" title="3. 开源分布式数据库中间件Mycat-Server"></a>3. 开源分布式数据库中间件Mycat-Server</h2><blockquote>
+<p>作者：mycat开源团队<br>github地址:<a href="https://github.com/MyCATApache/Mycat-Server" target="_blank" rel="noopener">https://github.com/MyCATApache/Mycat-Server</a></p>
+</blockquote>
+<h2 id="4-开源分布式数据库中间件mycat文档mycat-doc"><a href="#4-开源分布式数据库中间件mycat文档mycat-doc" class="headerlink" title="4. 开源分布式数据库中间件mycat文档mycat-doc"></a>4. 开源分布式数据库中间件mycat文档mycat-doc</h2><blockquote>
+<p>作者：mycat开源团队<br>github地址:<a href="https://github.com/MyCATApache/Mycat-doc" target="_blank" rel="noopener">https://github.com/MyCATApache/Mycat-doc</a></p>
+</blockquote>
+<h2 id="5-基于spring的基础框架库springside"><a href="#5-基于spring的基础框架库springside" class="headerlink" title="5. 基于spring的基础框架库springside"></a>5. 基于spring的基础框架库springside</h2><blockquote>
+<p>作者：江南白衣<br>github地址:<a href="https://github.com/springside/springside4" target="_blank" rel="noopener">https://github.com/springside/springside4</a></p>
+</blockquote>
+<h2 id="6-开源信息化快速开发平台jeesite"><a href="#6-开源信息化快速开发平台jeesite" class="headerlink" title="6. 开源信息化快速开发平台jeesite"></a>6. 开源信息化快速开发平台jeesite</h2><blockquote>
+<p>作者：thinkgem<br>github地址:<a href="https://github.com/thinkgem/jeesite" target="_blank" rel="noopener">https://github.com/thinkgem/jeesite</a></p>
+</blockquote>
+<h2 id="7-Java资源大全中文版awesome-java-cn"><a href="#7-Java资源大全中文版awesome-java-cn" class="headerlink" title="7. Java资源大全中文版awesome-java-cn"></a>7. Java资源大全中文版awesome-java-cn</h2><blockquote>
+<p>作者：伯乐在线<br>github地址:<a href="https://github.com/jobbole/awesome-java-cn" target="_blank" rel="noopener">https://github.com/jobbole/awesome-java-cn</a></p>
+</blockquote>
+<h2 id="8-通用权限管理系统cl-privilege"><a href="#8-通用权限管理系统cl-privilege" class="headerlink" title="8. 通用权限管理系统cl-privilege"></a>8. 通用权限管理系统cl-privilege</h2><blockquote>
+<p>作者：pumadong<br>github地址:<a href="https://github.com/pumadong/cl-privilege" target="_blank" rel="noopener">https://github.com/pumadong/cl-privilege</a></p>
+</blockquote>
+<h2 id="9-开源分布式应用追踪分析系统sky-walking"><a href="#9-开源分布式应用追踪分析系统sky-walking" class="headerlink" title="9. 开源分布式应用追踪分析系统sky-walking"></a>9. 开源分布式应用追踪分析系统sky-walking</h2><blockquote>
+<p>作者：sky-walking团队<br>github地址:<a href="https://github.com/wu-sheng/sky-walking" target="_blank" rel="noopener">https://github.com/wu-sheng/sky-walking</a></p>
+</blockquote>
+<h2 id="10-轻量级Java-Web框架smart-framework"><a href="#10-轻量级Java-Web框架smart-framework" class="headerlink" title="10. 轻量级Java Web框架smart-framework"></a>10. 轻量级Java Web框架smart-framework</h2><blockquote>
+<p>作者：黄勇<br>git.oschina地址:<a href="http://git.oschina.net/huangyong/smart-framework" target="_blank" rel="noopener">http://git.oschina.net/huangyong/smart-framework</a></p>
+</blockquote>
+<h2 id="11-许雪里github"><a href="#11-许雪里github" class="headerlink" title="11.许雪里github:"></a>11.许雪里github:</h2><blockquote>
+<p>作者：许雪里<br>github地址:<a href="https://github.com/xuxueli" target="_blank" rel="noopener">https://github.com/xuxueli</a></p>
+</blockquote>
+<h2 id="12-响应式函数编程框架RxJava"><a href="#12-响应式函数编程框架RxJava" class="headerlink" title="12. 响应式函数编程框架RxJava"></a>12. 响应式函数编程框架RxJava</h2><blockquote>
+<p>作者：ReactiveX<br>github地址:<a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="noopener">https://github.com/ReactiveX/RxJava</a></p>
+</blockquote>
+<h2 id="13-常用的java基础工具类iceroot"><a href="#13-常用的java基础工具类iceroot" class="headerlink" title="13. 常用的java基础工具类iceroot"></a>13. 常用的java基础工具类iceroot</h2><blockquote>
+<p>作者：iceroot<br>github地址:<a href="https://github.com/iceroot/iceroot" target="_blank" rel="noopener">https://github.com/iceroot/iceroot</a></p>
+</blockquote>
+<h2 id="14-开源轻量级的-高性能的事件总线MBassador"><a href="#14-开源轻量级的-高性能的事件总线MBassador" class="headerlink" title="14. 开源轻量级的,高性能的事件总线MBassador"></a>14. 开源轻量级的,高性能的事件总线MBassador</h2><blockquote>
+<p>作者：Benjamin Diedrichsen<br>github地址:<a href="https://github.com/bennidi/mbassador" target="_blank" rel="noopener">https://github.com/bennidi/mbassador</a></p>
+</blockquote>
+<h2 id="15-通过注解来减少Java中的重复代码工具lombok"><a href="#15-通过注解来减少Java中的重复代码工具lombok" class="headerlink" title="15. 通过注解来减少Java中的重复代码工具lombok"></a>15. 通过注解来减少Java中的重复代码工具lombok</h2><blockquote>
+<p>作者：Reinier Zwitserloot<br>github地址:<a href="https://github.com/rzwitserloot/lombok" target="_blank" rel="noopener">https://github.com/rzwitserloot/lombok</a></p>
+</blockquote>
+<h2 id="16-简单日志门面slf4j"><a href="#16-简单日志门面slf4j" class="headerlink" title="16.简单日志门面slf4j"></a>16.简单日志门面slf4j</h2><blockquote>
+<p>作者：QOS.ch<br>github地址:<a href="https://github.com/qos-ch/slf4j" target="_blank" rel="noopener">https://github.com/qos-ch/slf4j</a></p>
+</blockquote>
+<h2 id="17-模拟测试框架Mockito"><a href="#17-模拟测试框架Mockito" class="headerlink" title="17.模拟测试框架Mockito"></a>17.模拟测试框架Mockito</h2><blockquote>
+<p>作者：mockito<br>github地址:<a href="https://github.com/mockito/mockito" target="_blank" rel="noopener">https://github.com/mockito/mockito</a></p>
+</blockquote>
+<h2 id="18-结合JUnit、-Guice、-Mockito的高效组合测试框架Jukito"><a href="#18-结合JUnit、-Guice、-Mockito的高效组合测试框架Jukito" class="headerlink" title="18. 结合JUnit、 Guice、 Mockito的高效组合测试框架Jukito"></a>18. 结合JUnit、 Guice、 Mockito的高效组合测试框架Jukito</h2><blockquote>
+<p>作者：Arcbees<br>github地址:<a href="https://github.com/ArcBees/Jukito" target="_blank" rel="noopener">https://github.com/ArcBees/Jukito</a></p>
+</blockquote>
+<h2 id="19-轻量化的分布式服务框架rsf"><a href="#19-轻量化的分布式服务框架rsf" class="headerlink" title="19. 轻量化的分布式服务框架rsf"></a>19. 轻量化的分布式服务框架rsf</h2><blockquote>
+<p>作者：Hasor Group<br>码云地址:<a href="http://git.oschina.net/zycgit/rsf" target="_blank" rel="noopener">http://git.oschina.net/zycgit/rsf</a></p>
+</blockquote>
+<h2 id="20-JAVA-极速WEB-ORM框架-JFinal"><a href="#20-JAVA-极速WEB-ORM框架-JFinal" class="headerlink" title="20. JAVA 极速WEB+ORM框架 JFinal"></a>20. JAVA 极速WEB+ORM框架 JFinal</h2><blockquote>
+<p>作者：James Zhan<br>github地址:<a href="https://github.com/jfinal/jfinal" target="_blank" rel="noopener">https://github.com/jfinal/jfinal</a></p>
+</blockquote>
+<ul>
+<li>转自：<a href="http://blog.longjiazuo.com/archives/2625?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="noopener">http://blog.longjiazuo.com/archives/2625?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/01/17/how-to-use-jacman/" class="pre-post btn btn-default" title='【转】如何使用 Jacman 主题'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">【转】如何使用 Jacman 主题</span>
+        </a>
+    
+    
+        <a href="/2017/06/28/idea-key-server/" class="next-post btn btn-default" title='Idea 激活网址记录'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Idea 激活网址记录</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        // new Valine({
+        //     av: AV,
+        //     el: '#vcomments',
+        //     appId: 'sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz',
+        //     appKey: 'iiz82gKScRxXnAUhzSl152xw',
+        //     placeholder: '说点什么吧',
+        //     notify: false,
+        //     verify: false,
+        //     avatar: 'mm',
+        //     meta: 'nick,mail'.split(','),
+        //     pageSize: '10',
+        //     path: window.location.pathname,
+        //     lang: 'null'.toLowerCase()
+        // })
+
+        new Valine({
+          // AV 对象来自上面引入av-min.js(老司机们不要开车➳♡゛扎心了老铁)
+          av: AV,
+          el: '#vcomments', //
+          appId: 'sLXJLlU1IkX9EAXR1mw7o7UU-gzGzoHsz', // 这里填写上面得到的APP ID
+          appKey: 'iiz82gKScRxXnAUhzSl152xw', // 这里填写上面得到的APP KEY
+          placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!' // [v1.0.7 new]留言框占位提示文字
+        });
+
+    </script>
+
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#下面提供一些跟开源相关的文章链接："><span class="toc-text">下面提供一些跟开源相关的文章链接：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Apache的开源软件列表"><span class="toc-text">1.Apache的开源软件列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Java开源Apache项目"><span class="toc-text">2. Java开源Apache项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-阿里巴巴的开源软件列表"><span class="toc-text">3. 阿里巴巴的开源软件列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-百度的开源软件列表"><span class="toc-text">4. 百度的开源软件列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-腾讯的开源软件列表"><span class="toc-text">5. 腾讯的开源软件列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-华为的开源软件列表"><span class="toc-text">6. 华为的开源软件列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Netflix的开源软件列表"><span class="toc-text">7. Netflix的开源软件列表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-大公司都有哪些开源项目"><span class="toc-text">8. 大公司都有哪些开源项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2017年你不能错过的Java类库"><span class="toc-text">9. 2017年你不能错过的Java类库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-公司开源导航页"><span class="toc-text">10. 公司开源导航页</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#下面提供一些开源项目链接地址："><span class="toc-text">下面提供一些开源项目链接地址：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#【spring项目】"><span class="toc-text">【spring项目】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-spring以及子项目"><span class="toc-text">1. spring以及子项目:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【spring-cloud项目】"><span class="toc-text">【spring cloud项目】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-spring-cloud系列项目"><span class="toc-text">1. spring cloud系列项目:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【apache基金会】"><span class="toc-text">【apache基金会】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-apache开源项目列表"><span class="toc-text">1. apache开源项目列表:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-apache项目github地址"><span class="toc-text">2. apache项目github地址:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【eclipse基金会】"><span class="toc-text">【eclipse基金会】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-轻量级的高性能JVM应用平台Vert-x"><span class="toc-text">1. 轻量级的高性能JVM应用平台Vert.x</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【阿里巴巴】"><span class="toc-text">【阿里巴巴】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-开源JSON处理框架fastjson"><span class="toc-text">1. 开源JSON处理框架fastjson:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-开源数据库连接池druid："><span class="toc-text">2. 开源数据库连接池druid：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-开源分布式服务框架dubbo："><span class="toc-text">3. 开源分布式服务框架dubbo：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-开源分布式开放消息队列RocketMQ："><span class="toc-text">4. 开源分布式开放消息队列RocketMQ：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-开源实时流式计算框架jstorm"><span class="toc-text">5. 开源实时流式计算框架jstorm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-开源分布式数据库同步系统otter"><span class="toc-text">6. 开源分布式数据库同步系统otter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-开源分布式数据库服务中间件cobar"><span class="toc-text">7.开源分布式数据库服务中间件cobar</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【唯品会】"><span class="toc-text">【唯品会】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-开源调度框架Saturn"><span class="toc-text">1. 开源调度框架Saturn:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【当当】"><span class="toc-text">【当当】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-开源调度框架elastic-job"><span class="toc-text">1. 开源调度框架elastic-job:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-开源分库分表中间件Sharding-JDBC"><span class="toc-text">2. 开源分库分表中间件Sharding-JDBC:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-开源分布式服务框架dubbox"><span class="toc-text">3. 开源分布式服务框架dubbox:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【百度】"><span class="toc-text">【百度】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-分布式系统配置管理disconf"><span class="toc-text">1.分布式系统配置管理disconf</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【腾讯】"><span class="toc-text">【腾讯】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-开源基于微服务的平台Tars"><span class="toc-text">1. 开源基于微服务的平台Tars</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【携程】"><span class="toc-text">【携程】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-开源Redis多数据中心复制管理系统x-pipe"><span class="toc-text">1. 开源Redis多数据中心复制管理系统x-pipe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-开源配置管理平台apollo"><span class="toc-text">2. 开源配置管理平台apollo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-开源数据库访问框架dal"><span class="toc-text">3. 开源数据库访问框架dal</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【大众点评】"><span class="toc-text">【大众点评】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-开源实时应用监控平台cat"><span class="toc-text">1. 开源实时应用监控平台cat</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【谷歌Google】"><span class="toc-text">【谷歌Google】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-开源java轻量级IOC框架Guice"><span class="toc-text">1. 开源java轻量级IOC框架Guice</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-开源基于java1-6的类库集合的扩展guava"><span class="toc-text">2. 开源基于java1.6的类库集合的扩展guava</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【移动支付公司Square】"><span class="toc-text">【移动支付公司Square】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-开源处理网络请求的网络框架OkHttp"><span class="toc-text">1. 开源处理网络请求的网络框架OkHttp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-网络请求框架Retrofit"><span class="toc-text">2. 网络请求框架Retrofit</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【mybatis项目】"><span class="toc-text">【mybatis项目】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Sql映射持久层框架mybatis"><span class="toc-text">1. Sql映射持久层框架mybatis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#【hibernate项目】"><span class="toc-text">【hibernate项目】</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-对象关系映射框架hibernate"><span class="toc-text">1. 对象关系映射框架hibernate</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-spring-boot中文参考文档"><span class="toc-text">1. spring boot中文参考文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-spring4中文参考文档"><span class="toc-text">2. spring4中文参考文档</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-开源分布式数据库中间件Mycat-Server"><span class="toc-text">3. 开源分布式数据库中间件Mycat-Server</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-开源分布式数据库中间件mycat文档mycat-doc"><span class="toc-text">4. 开源分布式数据库中间件mycat文档mycat-doc</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-基于spring的基础框架库springside"><span class="toc-text">5. 基于spring的基础框架库springside</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-开源信息化快速开发平台jeesite"><span class="toc-text">6. 开源信息化快速开发平台jeesite</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-Java资源大全中文版awesome-java-cn"><span class="toc-text">7. Java资源大全中文版awesome-java-cn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-通用权限管理系统cl-privilege"><span class="toc-text">8. 通用权限管理系统cl-privilege</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-开源分布式应用追踪分析系统sky-walking"><span class="toc-text">9. 开源分布式应用追踪分析系统sky-walking</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-轻量级Java-Web框架smart-framework"><span class="toc-text">10. 轻量级Java Web框架smart-framework</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11-许雪里github"><span class="toc-text">11.许雪里github:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-响应式函数编程框架RxJava"><span class="toc-text">12. 响应式函数编程框架RxJava</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13-常用的java基础工具类iceroot"><span class="toc-text">13. 常用的java基础工具类iceroot</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14-开源轻量级的-高性能的事件总线MBassador"><span class="toc-text">14. 开源轻量级的,高性能的事件总线MBassador</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15-通过注解来减少Java中的重复代码工具lombok"><span class="toc-text">15. 通过注解来减少Java中的重复代码工具lombok</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16-简单日志门面slf4j"><span class="toc-text">16.简单日志门面slf4j</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17-模拟测试框架Mockito"><span class="toc-text">17.模拟测试框架Mockito</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18-结合JUnit、-Guice、-Mockito的高效组合测试框架Jukito"><span class="toc-text">18. 结合JUnit、 Guice、 Mockito的高效组合测试框架Jukito</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-轻量化的分布式服务框架rsf"><span class="toc-text">19. 轻量化的分布式服务框架rsf</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20-JAVA-极速WEB-ORM框架-JFinal"><span class="toc-text">20. JAVA 极速WEB+ORM框架 JFinal</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2018
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
