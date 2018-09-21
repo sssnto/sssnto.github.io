@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "elasticsearch 学习笔记2-与es之间的交互"
+title: "elasticsearch-与es之间的交互"
 date: "2018-09-18 11:34"
 tags: [elasticsearch,'分布式搜索']
 category: [elasticsearch]

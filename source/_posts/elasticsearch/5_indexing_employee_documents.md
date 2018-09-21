@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "elasticsearch 学习笔记5-检索文档"
+title: "elasticsearch-检索文档"
 date: "2018-09-18 14:05"
 tags: [elasticsearch,'分布式搜索']
 category: [elasticsearch]

@@ -1,6 +1,6 @@
 ---
 layout: "post"
-title: "elasticsearch 学习笔记4-简单的小需求"
+title: "elasticsearch-简单的小需求"
 date: "2018-09-18 13:55"
 tags: [elasticsearch,'分布式搜索']
 category: [elasticsearch]
